@@ -3,25 +3,31 @@
 import React, { useState } from "react";
 
 // Components
-
-import ClientLogin from "./UiLogin";
+import UiLogin from "./UiLogin";
 
 // Interfaces
-
 import type { LoginProps } from "../types";
 
-export default function ServerLogin({ loginRoute, onGoogleLogin }: LoginProps) {
+interface LoginComponentProps {
+  onSubmit: (formData: FormData) => void;
+  errors?: { username?: string; password?: string };
+  message?: string | null;
+}
+
+export default function Login({
+  loginRoute,
+  onGoogleLogin,
+  UiComponent, // ⬅️ اضافه شد
+}: LoginProps & { UiComponent?: React.ComponentType<LoginComponentProps> }) {
   // states
   const [errors, setErrors] = useState<{
     username?: string;
     password?: string;
   }>({});
-
   const [message, setMessage] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
   // functions
-
   const handleSubmit = async (formData: FormData) => {
     setMessage(null);
     setErrors({});
@@ -62,7 +68,6 @@ export default function ServerLogin({ loginRoute, onGoogleLogin }: LoginProps) {
       }
 
       setMessage(data?.message || "Login successful");
-      // if (data?.redirectTo) router.push(data.redirectTo);
     } catch (err: any) {
       setMessage(err?.message || "Network error");
     } finally {
@@ -70,9 +75,12 @@ export default function ServerLogin({ loginRoute, onGoogleLogin }: LoginProps) {
     }
   };
 
+  // ✅ اگر UiComponent پاس داده شده باشه، اون استفاده میشه
+  const RenderUi = UiComponent || UiLogin;
+
   return (
     <>
-      <ClientLogin onSubmit={handleSubmit} errors={errors} message={message} />
+      <RenderUi onSubmit={handleSubmit} errors={errors} message={message} />
 
       {loading && (
         <p className="text-center text-gray-200 mt-2">Logging in...</p>

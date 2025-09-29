@@ -5,10 +5,10 @@ import Image from "next/image";
 interface ClientLoginProps {
   onSubmit: (formData: FormData) => void;
   errors?: { username?: string; password?: string };
-  message?: string | null; // پیغامی که بالای فرم نمایش داده می‌شود
+  message?: string | null;
 }
 
-export default function ClientLogin({
+export default function UiLogin({
   onSubmit,
   errors,
   message,
@@ -35,7 +35,6 @@ export default function ClientLogin({
           Login with your credentials to continue
         </p>
 
-        {/* <-- اینجا پیام خطا (message) نمایش داده می‌شود --> */}
         {message && (
           <div
             role="alert"

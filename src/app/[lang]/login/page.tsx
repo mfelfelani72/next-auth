@@ -7,7 +7,8 @@ export const metadata: Metadata = {
 
 // Components
 
-import ServerLogin from "@/components/Login";
+import Login from "@/components/Login";
+import NewUiLogin from "@/components/NewUiLogin";
 
 // Interfaces
 
@@ -16,9 +17,11 @@ import type { LoginProps } from "@/types";
 export default function Page({ loginRoute, onGoogleLogin }: LoginProps) {
   return (
     <>
-      <ServerLogin
+      {/* <Login loginRoute={"/api/auth/login"} onGoogleLogin={onGoogleLogin} /> */}
+      <Login
         loginRoute={"/api/auth/login"}
         onGoogleLogin={onGoogleLogin}
+        UiComponent={NewUiLogin}
       />
     </>
   );
