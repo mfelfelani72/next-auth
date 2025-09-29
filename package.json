@@ -1,6 +1,11 @@
 {
-  "name": "next-auth",
-  "version": "0.0.1",
+  "name": "next-auth-mfelfelani72",
+  "version": "0.0.2",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "private": false,
   "scripts": {
     "dev": "next dev --turbopack",
