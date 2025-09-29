@@ -1,34 +1,36 @@
 "use client";
 
 import React, { useState } from "react";
-import ClientLogin from "./ClientLogin";
 
-interface ServerLoginProps {
-  loginRoute: string; // مثال: "/api/auth/login"
-  onGoogleLogin?: () => void;
-}
+// Components
 
-export default function ServerLogin({
-  loginRoute,
-  onGoogleLogin,
-}: ServerLoginProps) {
+import ClientLogin from "./UiLogin";
+
+// Interfaces
+
+import type { LoginProps } from "../types";
+
+export default function ServerLogin({ loginRoute, onGoogleLogin }: LoginProps) {
+  // states
   const [errors, setErrors] = useState<{
     username?: string;
     password?: string;
   }>({});
+
   const [message, setMessage] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
+  // functions
+
   const handleSubmit = async (formData: FormData) => {
-    // پاک کردن پیام قبلی
     setMessage(null);
     setErrors({});
 
     const username = (formData.get("username") as string) || "";
     const password = (formData.get("password") as string) || "";
 
-    // validation ساده
     const newErrors: typeof errors = {};
+
     if (!username.trim()) newErrors.username = "Username is required";
     else if (username.length < 3)
       newErrors.username = "Username must be at least 3 characters";
@@ -39,7 +41,6 @@ export default function ServerLogin({
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
-      // پیام عمومی بالای فرم — کاربر واضح ببینه چه اتفاقی افتاده
       setMessage("Please fix the errors below.");
       return;
     }
@@ -56,14 +57,11 @@ export default function ServerLogin({
       const data = await res.json();
 
       if (!res.ok) {
-        // سرور پیام خطا ارسال کرده
         setMessage(data?.message || "Login failed");
         return;
       }
 
-      // موفقیت — پیام یا redirect انجام بدی
       setMessage(data?.message || "Login successful");
-      // مثال: اگر میخوای ریدایرکت کنی:
       // if (data?.redirectTo) router.push(data.redirectTo);
     } catch (err: any) {
       setMessage(err?.message || "Network error");
@@ -75,12 +73,11 @@ export default function ServerLogin({
   return (
     <>
       <ClientLogin onSubmit={handleSubmit} errors={errors} message={message} />
-      {/* اگر لازم می‌دونی می‌تونی لِیودینگ global اینجا هم نمایش بدی */}
+
       {loading && (
         <p className="text-center text-gray-200 mt-2">Logging in...</p>
       )}
 
-      {/* دکمه گوگل در صورت نیاز */}
       {onGoogleLogin && (
         <div className="flex justify-center mt-4">
           <button

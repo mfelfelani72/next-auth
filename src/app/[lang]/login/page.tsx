@@ -1,24 +1,17 @@
 import type { Metadata } from "next";
 
-export async function generateMetadata({
-  metadata,
-}: {
-  metadata?: LoginMetadata;
-}): Promise<Metadata> {
-  return {
-    title: metadata?.title || "Login",
-    description: metadata?.description || "Login page",
-  };
-}
+export const metadata: Metadata = {
+  title: "Login",
+  description: "Login page",
+};
 
 // Components
 
-import Login from "@/components/ClientLogin";
+import ServerLogin from "@/components/Login";
 
 // Interfaces
 
-import type { LoginProps, LoginMetadata } from "@/types";
-import ServerLogin from "@/components/ServerLogin";
+import type { LoginProps } from "@/types";
 
 export default function Page({ loginRoute, onGoogleLogin }: LoginProps) {
   return (
