@@ -1,10 +1,12 @@
 {
   "name": "next-auth",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.0.1",
+  "private": false,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
+    "build": "npm run build:dist",
+    "build:dist": "tsc -p tsconfig.build.json",
+    "build:server": "tsc -p tsconfig.server.json",
     "start": "next start",
     "lint": "eslint"
   },

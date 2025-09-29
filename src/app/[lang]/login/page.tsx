@@ -17,7 +17,6 @@ import type { LoginProps } from "@/types";
 export default function Page({ loginRoute, onGoogleLogin }: LoginProps) {
   return (
     <>
-      {/* <Login loginRoute={"/api/auth/login"} onGoogleLogin={onGoogleLogin} /> */}
       <Login
         loginRoute={"/api/auth/login"}
         onGoogleLogin={onGoogleLogin}

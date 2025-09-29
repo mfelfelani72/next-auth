@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "declaration": true,
+    "outDir": "dist",
+    "jsx": "react-jsx"
+  },
+  "include": ["src"],
+  "exclude": ["app", "**/app/**", "next.config.*", "*.test.*", "*.spec.*"]
+}
