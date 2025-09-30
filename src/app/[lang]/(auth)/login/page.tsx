@@ -1,23 +1,28 @@
+"use client";
 import type { Metadata } from "next";
+import Head from "next/head";
 
-export const metadata: Metadata = {
-  title: "Login",
-  description: "Login page",
-};
+// export const metadata: Metadata = {
+//   title: "Login",
+//   description: "Login page",
+// };
 
 // Components
 
 import Login from "@/components/Login";
-import NewUiLogin from "@/components/NewUiLogin";
-import New2 from "@/components/New2";
 
-// Interfaces
+// Interface
 
 import type { LoginProps } from "@/types";
 
 export default function Page({ loginRoute, onGoogleLogin }: LoginProps) {
   return (
     <>
+      <Head>
+        <title>Login Page</title>
+        <meta name="description" content="Login to your account" />
+      </Head>
+
       <Login
         loginRoute={"/api/auth/login"}
         // onGoogleLogin={onGoogleLogin}

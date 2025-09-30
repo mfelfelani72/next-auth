@@ -3,7 +3,7 @@ import { Geist } from "next/font/google";
 
 // Constants and Interface
 
-import { languages, Lang } from "../../config/language";
+import { languages, Lang } from "../../../config/language";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

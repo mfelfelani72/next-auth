@@ -1,6 +1,8 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface ClientLoginProps {
   onSubmit: (formData: FormData) => void;
@@ -13,9 +15,21 @@ export default function UiLogin({
   errors,
   message,
 }: ClientLoginProps) {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    // trigger the animation on mount
+    setVisible(true);
+  }, []);
+
   return (
     <div className="fixed inset-0 overflow-hidden flex items-center justify-center bg-gradient-to-br from-purple-900 via-purple-800 to-black p-4">
-      <div className="w-full max-w-md bg-white/20 backdrop-blur-md rounded-2xl shadow-xl p-8 border border-white/30">
+      <div
+        className={`w-full max-w-md bg-white/20 backdrop-blur-md rounded-2xl shadow-xl p-8 border border-white/30
+          transform transition-all duration-700 ease-out
+          ${visible ? "opacity-100 scale-100" : "opacity-0 scale-95"}
+        `}
+      >
         {/* Picture / Logo */}
         <div className="flex justify-center mb-6">
           <Image
@@ -131,11 +145,12 @@ export default function UiLogin({
             </button>
           </div>
 
+          {/* Link to Register */}
           <p className="text-center text-sm text-gray-200 mt-4">
             Don’t have an account?{" "}
-            <a href="#" className="underline hover:text-white">
-              Sign up
-            </a>
+            <Link href="/en/register" className="underline hover:text-white">
+              Register
+            </Link>
           </p>
         </form>
       </div>
