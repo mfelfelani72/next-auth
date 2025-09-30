@@ -7,5 +7,12 @@
     "jsx": "react-jsx"
   },
   "include": ["src"],
-  "exclude": ["app", "**/app/**", "next.config.*", "*.test.*", "*.spec.*"]
+  "exclude": [
+    "app",
+    "**/app/**",
+    "UiLogin",
+    "next.config.*",
+    "*.test.*",
+    "*.spec.*"
+  ]
 }
