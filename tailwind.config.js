@@ -1,6 +1,5 @@
 // tailwind.config.js
 module.exports = {
-  prefix: 'mf-',
   content: [
     "./app/**/*.{js,ts,jsx,tsx}",
     "./pages/**/*.{js,ts,jsx,tsx}",
