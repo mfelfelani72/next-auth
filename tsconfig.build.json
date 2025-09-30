@@ -4,15 +4,11 @@
     "noEmit": false,
     "declaration": true,
     "outDir": "dist",
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "incremental": false,
+    "tsBuildInfoFile": null,
+    "composite": false
   },
-  "include": ["src"],
-  "exclude": [
-    "app",
-    "**/app/**",
-    "UiLogin",
-    "next.config.*",
-    "*.test.*",
-    "*.spec.*"
-  ]
+  "include": ["src/index.ts", "src/components/!(demo)/**/*"],
+  "exclude": ["app", "**/app/**", "next.config.*", "*.test.*", "*.spec.*"]
 }

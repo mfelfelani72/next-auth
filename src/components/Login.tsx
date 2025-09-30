@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 
 // Components
-import UiLogin from "./UiLogin";
+import UiLogin from "./demo/UiLogin";
 
 // Interfaces
 import type { LoginProps } from "../types";

@@ -2,7 +2,7 @@
 import { jsx as _jsx, Fragment as _Fragment, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState } from "react";
 // Components
-import UiLogin from "./UiLogin";
+import UiLogin from "./demo/UiLogin";
 export default function Login({ loginRoute, onGoogleLogin, UiComponent, // ⬅️ اضافه شد
  }) {
     // states
