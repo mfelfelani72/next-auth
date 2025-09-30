@@ -14,31 +14,31 @@ export default function UiLogin({
   message,
 }: ClientLoginProps) {
   return (
-    <div className="fixed inset-0 overflow-hidden flex items-center justify-center bg-gradient-to-br from-purple-900 via-purple-800 to-black p-4">
-      <div className="w-full max-w-md bg-white/20 backdrop-blur-md rounded-2xl shadow-xl p-8 border border-white/30">
+    <div className="mf-fixed mf-inset-0 mf-overflow-hidden mf-flex mf-items-center mf-justify-center mf-bg-gradient-to-br mf-from-purple-900 mf-via-purple-800 mf-to-black mf-p-4">
+      <div className="mf-w-full mf-max-w-md mf-bg-white/20 mf-backdrop-blur-md mf-rounded-2xl mf-shadow-xl mf-p-8 mf-border mf-border-white/30">
         {/* Picture / Logo */}
-        <div className="flex justify-center mb-6">
+        <div className="mf-flex mf-justify-center mf-mb-6">
           <Image
             src="/logo.png"
             alt="Logo"
             width={80}
             height={80}
-            className="rounded-full shadow"
+            className="mf-rounded-full mf-shadow"
           />
         </div>
 
         {/* Title */}
-        <h1 className="text-2xl font-bold text-center text-white mb-2">
+        <h1 className="mf-text-2xl mf-font-bold mf-text-center mf-text-white mf-mb-2">
           Welcome Back
         </h1>
-        <p className="text-center text-gray-200 mb-6 text-sm">
+        <p className="mf-text-center mf-text-gray-200 mf-mb-6 mf-text-sm">
           Login with your credentials to continue
         </p>
 
         {message && (
           <div
             role="alert"
-            className="mb-4 text-center text-red-300 font-medium"
+            className="mf-mb-4 mf-text-center mf-text-red-300 mf-font-medium"
           >
             {message}
           </div>
@@ -52,12 +52,12 @@ export default function UiLogin({
             onSubmit(formData);
           }}
           noValidate
-          className="space-y-5"
+          className="mf-space-y-5"
         >
           <div>
             <label
               htmlFor="username"
-              className="block text-sm font-medium text-white mb-1"
+              className="mf-block mf-text-sm mf-font-medium mf-text-white mf-mb-1"
             >
               Username
             </label>
@@ -67,19 +67,19 @@ export default function UiLogin({
               type="text"
               placeholder="Enter your username"
               required
-              className={`w-full px-4 py-2 rounded-lg bg-white/20 focus:bg-white/30 border focus:outline-none focus:ring-2 border-gray-300 focus:ring-purple-400 text-white placeholder-gray-200 ${
-                errors?.username ? "border-red-500" : ""
+              className={`mf-w-full mf-px-4 mf-py-2 mf-rounded-lg mf-bg-white/20 mf-focus:bg-white/30 mf-border mf-focus:outline-none mf-focus:ring-2 mf-text-white mf-placeholder-gray-200 ${
+                errors?.username ? "mf-border-red-500" : "mf-border-gray-300 mf-focus:ring-purple-400"
               }`}
             />
             {errors?.username && (
-              <p className="mt-1 text-sm text-red-300">{errors.username}</p>
+              <p className="mf-mt-1 mf-text-sm mf-text-red-300">{errors.username}</p>
             )}
           </div>
 
           <div>
             <label
               htmlFor="password"
-              className="block text-sm font-medium text-white mb-1"
+              className="mf-block mf-text-sm mf-font-medium mf-text-white mf-mb-1"
             >
               Password
             </label>
@@ -89,47 +89,47 @@ export default function UiLogin({
               type="password"
               placeholder="Enter your password"
               required
-              className={`w-full px-4 py-2 rounded-lg bg-white/20 focus:bg-white/30 border focus:outline-none focus:ring-2 border-gray-300 focus:ring-purple-400 text-white placeholder-gray-200 ${
-                errors?.password ? "border-red-500" : ""
+              className={`mf-w-full mf-px-4 mf-py-2 mf-rounded-lg mf-bg-white/20 mf-focus:bg-white/30 mf-border mf-focus:outline-none mf-focus:ring-2 mf-text-white mf-placeholder-gray-200 ${
+                errors?.password ? "mf-border-red-500" : "mf-border-gray-300 mf-focus:ring-purple-400"
               }`}
             />
             {errors?.password && (
-              <p className="mt-1 text-sm text-red-300">{errors.password}</p>
+              <p className="mf-mt-1 mf-text-sm mf-text-red-300">{errors.password}</p>
             )}
           </div>
 
           <button
             type="submit"
-            className="w-full py-2 bg-purple-700/80 text-white rounded-lg hover:bg-purple-800 transition"
+            className="mf-w-full mf-py-2 mf-bg-purple-700/80 mf-text-white mf-rounded-lg mf-hover:bg-purple-800 mf-transition"
           >
             Log In
           </button>
 
           {/* Social Login Buttons */}
-          <div className="flex justify-center gap-4 mt-4">
+          <div className="mf-flex mf-justify-center mf-gap-4 mf-mt-4">
             <button
               type="button"
-              className="flex items-center justify-center w-10 h-10 rounded-full bg-red-500 hover:bg-red-600 text-white transition font-bold text-lg"
+              className="mf-flex mf-items-center mf-justify-center mf-w-10 mf-h-10 mf-rounded-full mf-bg-red-500 mf-hover:bg-red-600 mf-text-white mf-transition mf-font-bold mf-text-lg"
             >
               G
             </button>
             <button
               type="button"
-              className="flex items-center justify-center w-10 h-10 rounded-full bg-blue-600 hover:bg-blue-700 text-white transition font-bold text-lg"
+              className="mf-flex mf-items-center mf-justify-center mf-w-10 mf-h-10 mf-rounded-full mf-bg-blue-600 mf-hover:bg-blue-700 mf-text-white mf-transition mf-font-bold mf-text-lg"
             >
               F
             </button>
             <button
               type="button"
-              className="flex items-center justify-center w-10 h-10 rounded-full bg-blue-400 hover:bg-blue-500 text-white transition font-bold text-lg"
+              className="mf-flex mf-items-center mf-justify-center mf-w-10 mf-h-10 mf-rounded-full mf-bg-blue-400 mf-hover:bg-blue-500 mf-text-white mf-transition mf-font-bold mf-text-lg"
             >
               T
             </button>
           </div>
 
-          <p className="text-center text-sm text-gray-200 mt-4">
+          <p className="mf-text-center mf-text-sm mf-text-gray-200 mf-mt-4">
             Don’t have an account?{" "}
-            <a href="#" className="underline hover:text-white">
+            <a href="#" className="mf-underline mf-hover:text-white">
               Sign up
             </a>
           </p>

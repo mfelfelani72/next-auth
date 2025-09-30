@@ -20,7 +20,7 @@ export default function Page({ loginRoute, onGoogleLogin }: LoginProps) {
       <Login
         loginRoute={"/api/auth/login"}
         onGoogleLogin={onGoogleLogin}
-        UiComponent={NewUiLogin}
+        // UiComponent={NewUiLogin}
       />
     </>
   );
