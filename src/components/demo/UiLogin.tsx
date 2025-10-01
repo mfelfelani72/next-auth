@@ -152,6 +152,12 @@ export default function UiLogin({
               Register
             </Link>
           </p>
+          <p className="text-center text-sm text-gray-200 mt-4">
+            Forgot your password?{" "}
+            <Link href="/en/forgotpassword" className="underline hover:text-white">
+              Reset
+            </Link>
+          </p>
         </form>
       </div>
     </div>
