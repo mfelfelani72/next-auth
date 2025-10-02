@@ -1,21 +1,41 @@
-// src/app/[lang]/(auth)/login/page.tsx
+/*
+ * @Author: Mohammad Felfelani
+ * @Email: mfelfelani72@gmail.com
+ * @Team:
+ * @Date: 2025-10-02 06:53:53
+ * @Description:
+ */
+
+// Components
+
+import Login from "@/components/Login";
+
+// Functions
+
 import { getDictionary } from "@/dictionaries";
-import LoginPageClient from "../../../components/UiLogin";
-import LangSwitcher from "@/app/components/LangSwitcher";
 
-interface Props {
-  params: { lang?: string } | Promise<{ lang?: string }>;
-}
+// Interfaces
 
-export default async function LoginPage({ params }: Props) {
+import { LangInterface } from "@/Interfaces";
+
+export default async function LoginPage({ params }: LangInterface) {
+  // Constants
   const resolvedParams = await params;
   const { lang = "en" } = resolvedParams ?? {};
 
+  // Functions
   const dict = await getDictionary(lang);
+
   return (
     <>
-      <LangSwitcher currentLang={lang} />
-      <LoginPageClient dict={await dict} lang={lang} />;
+      <Login
+        dict={await dict}
+        lang={lang}
+        loginRoute={"/api/auth/login"}
+        // onGoogleLogin={onGoogleLogin}
+        // UiComponent={NewUiLogin}
+        // UiComponent={New2}
+      />
     </>
   );
 }

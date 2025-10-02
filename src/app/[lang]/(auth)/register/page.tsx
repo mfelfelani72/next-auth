@@ -1,7 +1,14 @@
+/*
+ * @Author: Mohammad Felfelani
+ * @Email: mfelfelani72@gmail.com
+ * @Team:
+ * @Date: 2025-10-02 06:53:53
+ * @Description:
+ */
 // example: src/app/[lang]/(auth)/register/page.tsx
 import { getDictionary } from "@/dictionaries";
-import RegisterPageClient from "../../../components/UiRegister";
-import LangSwitcher from "@/app/components/LangSwitcher";
+import RegisterPageClient from "../../../../components/UiRegister";
+import LangSwitcher from "@/components/LangSwitcher";
 
 interface Props {
   params: { lang?: string } | Promise<{ lang?: string }>;
