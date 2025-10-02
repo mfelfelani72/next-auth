@@ -8,7 +8,7 @@
 // example: src/app/[lang]/(auth)/register/page.tsx
 import { getDictionary } from "@/dictionaries";
 import RegisterPageClient from "../../../../components/UiRegister";
-import LangSwitcher from "@/components/LangSwitcher";
+import LangSwitcher from "@/components/FAB";
 
 interface Props {
   params: { lang?: string } | Promise<{ lang?: string }>;
