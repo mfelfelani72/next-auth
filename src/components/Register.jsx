@@ -6,8 +6,7 @@
  * @Description:
  */
 "use client";
-import { jsx as _jsx, Fragment as _Fragment, jsxs as _jsxs } from "react/jsx-runtime";
-import { useState } from "react";
+import React, { useState } from "react";
 // Components
 import UiRegister from "./demo/UiRegister";
 export default function Register({ registerRoute, onGoogleRegister, UiComponent, dict, lang, }) {
@@ -72,5 +71,15 @@ export default function Register({ registerRoute, onGoogleRegister, UiComponent,
         }
     };
     const RenderUi = UiComponent || UiRegister;
-    return (_jsxs(_Fragment, { children: [_jsx(RenderUi, { onSubmit: handleSubmit, errors: errors, message: message, dict: dict, lang: lang }), loading && (_jsx("p", { className: "text-center text-gray-200 mt-2", children: "Registering..." })), onGoogleRegister && (_jsx("div", { className: "flex justify-center mt-4", children: _jsx("button", { onClick: onGoogleRegister, className: "px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition", children: "Sign up with Google" }) }))] }));
+    return (<>
+      <RenderUi onSubmit={handleSubmit} errors={errors} message={message} dict={dict} lang={lang}/>
+
+      {loading && (<p className="text-center text-gray-200 mt-2">Registering...</p>)}
+
+      {onGoogleRegister && (<div className="flex justify-center mt-4">
+          <button onClick={onGoogleRegister} className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition">
+            Sign up with Google
+          </button>
+        </div>)}
+    </>);
 }

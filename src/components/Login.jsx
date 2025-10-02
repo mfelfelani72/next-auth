@@ -6,8 +6,7 @@
  * @Description:
  */
 "use client";
-import { jsx as _jsx, Fragment as _Fragment, jsxs as _jsxs } from "react/jsx-runtime";
-import { useState } from "react";
+import React, { useState } from "react";
 // Components
 import UiLogin from "./demo/UiLogin";
 export default function Login({ loginRoute, onGoogleLogin, UiComponent, dict, lang, }) {
@@ -57,5 +56,15 @@ export default function Login({ loginRoute, onGoogleLogin, UiComponent, dict, la
         }
     };
     const RenderUi = UiComponent || UiLogin;
-    return (_jsxs(_Fragment, { children: [_jsx(RenderUi, { onSubmit: handleSubmit, errors: errors, message: message }), loading && (_jsx("p", { className: "text-center text-gray-200 mt-2", children: "Logging in..." })), onGoogleLogin && (_jsx("div", { className: "flex justify-center mt-4", children: _jsx("button", { onClick: onGoogleLogin, className: "px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition", children: "Sign in with Google" }) }))] }));
+    return (<>
+      <RenderUi onSubmit={handleSubmit} errors={errors} message={message}/>
+
+      {loading && (<p className="text-center text-gray-200 mt-2">Logging in...</p>)}
+
+      {onGoogleLogin && (<div className="flex justify-center mt-4">
+          <button onClick={onGoogleLogin} className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition">
+            Sign in with Google
+          </button>
+        </div>)}
+    </>);
 }
