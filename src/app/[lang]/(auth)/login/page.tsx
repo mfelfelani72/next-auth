@@ -1,34 +1,21 @@
-"use client";
-import type { Metadata } from "next";
-import Head from "next/head";
+// src/app/[lang]/(auth)/login/page.tsx
+import { getDictionary } from "@/dictionaries";
+import LoginPageClient from "../../../../components/UiLogin";
+import LangSwitcher from "../../../../components/LangSwitcher";
 
-// export const metadata: Metadata = {
-//   title: "Login",
-//   description: "Login page",
-// };
+interface Props {
+  params: { lang?: string } | Promise<{ lang?: string }>;
+}
 
-// Components
+export default async function LoginPage({ params }: Props) {
+  const resolvedParams = await params;
+  const { lang = "en" } = resolvedParams ?? {};
 
-import Login from "@/components/Login";
-
-// Interface
-
-import type { LoginProps } from "@/types";
-
-export default function Page({ loginRoute, onGoogleLogin }: LoginProps) {
+  const dict = await getDictionary(lang);
   return (
     <>
-      <Head>
-        <title>Login Page</title>
-        <meta name="description" content="Login to your account" />
-      </Head>
-
-      <Login
-        loginRoute={"/api/auth/login"}
-        // onGoogleLogin={onGoogleLogin}
-        // UiComponent={NewUiLogin}
-        // UiComponent={New2}
-      />
+      <LangSwitcher currentLang={lang} />
+      <LoginPageClient dict={await dict} lang={lang} />;
     </>
   );
 }

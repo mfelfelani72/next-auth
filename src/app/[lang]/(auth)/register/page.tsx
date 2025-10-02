@@ -1,21 +1,24 @@
-"use client";
+// example: src/app/[lang]/(auth)/register/page.tsx
+import { getDictionary } from "@/dictionaries";
+import RegisterPageClient from "../../../../components/UiRegister";
+import LangSwitcher from "../../../../components/LangSwitcher";
 
-import Register from "@/components/Register";
+interface Props {
+  params: { lang?: string } | Promise<{ lang?: string }>;
+}
 
-export default function RegisterPage() {
-  // const handleSubmitServer = async (formData: FormData) => {
-  //   const name = formData.get("name");
-  //   const email = formData.get("email");
-  //   const password = formData.get("password");
-  //   const confirmPassword = formData.get("confirmPassword");
+export default async function RegisterPage({ params }: Props) {
+  // ✅ اگر params یک Promise باشه، await می‌کنیم؛ اگر نباشه هم کار می‌کنه
 
-  //   console.log({ name, email, password, confirmPassword });
-  //   // Logic to create user or call backend
-  // };
+  const resolvedParams = await params;
+  const { lang = "en" } = resolvedParams ?? {};
+
+  const dict = await getDictionary(lang);
 
   return (
-    <Register
-    // onSubmitServer={handleSubmitServer}
-    />
+    <>
+      <LangSwitcher currentLang={lang} />
+      <RegisterPageClient dict={await dict} lang={lang} />;
+    </>
   );
 }

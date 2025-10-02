@@ -13,16 +13,13 @@ export function generateStaticParams() {
 export default async function LangLayout({
   children,
   params,
-}: {
-  children: React.ReactNode;
-  params: { lang: string };
-}) {
+}: LangLayoutProps) {
   const resolvedParams = await params;
   const { lang = "en" } = resolvedParams ?? {};
-
-  const dir = languages[lang as keyof typeof languages].dir;
+  const selected = lang in languages ? lang : "en";
+  const dir = languages[selected as keyof typeof languages].dir;
   return (
-    <div lang={lang} dir={dir}>
+    <div lang={selected} dir={dir} className="min-h-screen">
       {children}
     </div>
   );

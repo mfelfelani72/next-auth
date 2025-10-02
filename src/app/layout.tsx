@@ -1,9 +1,10 @@
+import type { ReactNode } from "react";
 import "./global.css";
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return <>{children}</>;
+export default function RootLayout({ children }: { children: ReactNode }) {
+  return (
+    <html>
+      <body>{children}</body>
+    </html>
+  );
 }
