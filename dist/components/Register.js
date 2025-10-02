@@ -1,0 +1,76 @@
+/*
+ * @Author: Mohammad Felfelani
+ * @Email: mfelfelani72@gmail.com
+ * @Team:
+ * @Date: 2025-10-02 06:57:46
+ * @Description:
+ */
+"use client";
+import { jsx as _jsx, Fragment as _Fragment, jsxs as _jsxs } from "react/jsx-runtime";
+import { useState } from "react";
+// Components
+import UiRegister from "./demo/UiRegister";
+export default function Register({ registerRoute, onGoogleRegister, UiComponent, dict, lang, }) {
+    // States
+    const [errors, setErrors] = useState({});
+    const [message, setMessage] = useState(null);
+    const [loading, setLoading] = useState(false);
+    // Functions
+    const handleSubmit = async (formData) => {
+        setMessage(null);
+        setErrors({});
+        const name = formData.get("name") || "";
+        const email = formData.get("email") || "";
+        const password = formData.get("password") || "";
+        const password_confirmation = formData.get("password_confirmation") || "";
+        const newErrors = {};
+        if (!name.trim())
+            newErrors.name = "Name is required";
+        else if (name.length < 2)
+            newErrors.name = "Name must be at least 2 characters";
+        if (!email.trim())
+            newErrors.email = "Email is required";
+        else if (!/\S+@\S+\.\S+/.test(email))
+            newErrors.email = "Email is invalid";
+        if (!password)
+            newErrors.password = "Password is required";
+        else if (password.length < 6)
+            newErrors.password = "Password must be at least 6 characters";
+        if (!password_confirmation)
+            newErrors.password_confirmation = "Please confirm your password";
+        else if (password !== password_confirmation)
+            newErrors.password_confirmation = "Passwords do not match";
+        if (Object.keys(newErrors).length > 0) {
+            setErrors(newErrors);
+            setMessage("Please fix the errors below.");
+            return;
+        }
+        setLoading(true);
+        try {
+            const res = await fetch(registerRoute, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    name,
+                    email,
+                    password,
+                    password_confirmation,
+                }),
+            });
+            const data = await res.json();
+            if (!res.ok) {
+                setMessage((data === null || data === void 0 ? void 0 : data.message) || "Registration failed");
+                return;
+            }
+            setMessage((data === null || data === void 0 ? void 0 : data.message) || "Registration successful");
+        }
+        catch (err) {
+            setMessage((err === null || err === void 0 ? void 0 : err.message) || "Network error");
+        }
+        finally {
+            setLoading(false);
+        }
+    };
+    const RenderUi = UiComponent || UiRegister;
+    return (_jsxs(_Fragment, { children: [_jsx(RenderUi, { onSubmit: handleSubmit, errors: errors, message: message, dict: dict, lang: lang }), loading && (_jsx("p", { className: "text-center text-gray-200 mt-2", children: "Registering..." })), onGoogleRegister && (_jsx("div", { className: "flex justify-center mt-4", children: _jsx("button", { onClick: onGoogleRegister, className: "px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition", children: "Sign up with Google" }) }))] }));
+}

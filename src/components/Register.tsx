@@ -30,7 +30,7 @@ export default function Register({
     name?: string;
     email?: string;
     password?: string;
-    confirmPassword?: string;
+    password_confirmation?: string;
   }>({});
   const [message, setMessage] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -43,7 +43,8 @@ export default function Register({
     const name = (formData.get("name") as string) || "";
     const email = (formData.get("email") as string) || "";
     const password = (formData.get("password") as string) || "";
-    const confirmPassword = (formData.get("confirmPassword") as string) || "";
+    const password_confirmation =
+      (formData.get("password_confirmation") as string) || "";
 
     const newErrors: typeof errors = {};
 
@@ -58,10 +59,10 @@ export default function Register({
     else if (password.length < 6)
       newErrors.password = "Password must be at least 6 characters";
 
-    if (!confirmPassword)
-      newErrors.confirmPassword = "Please confirm your password";
-    else if (password !== confirmPassword)
-      newErrors.confirmPassword = "Passwords do not match";
+    if (!password_confirmation)
+      newErrors.password_confirmation = "Please confirm your password";
+    else if (password !== password_confirmation)
+      newErrors.password_confirmation = "Passwords do not match";
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
@@ -79,7 +80,7 @@ export default function Register({
           name,
           email,
           password,
-          password_confirmation: confirmPassword,
+          password_confirmation,
         }),
       });
 

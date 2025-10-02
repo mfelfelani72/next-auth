@@ -156,26 +156,26 @@ export default function UiRegister({
           {/* Confirm Password Field */}
           <div>
             <label
-              htmlFor="confirmPassword"
+              htmlFor="password_confirmation"
               className="block text-sm font-medium text-white mb-1"
             >
               Confirm Password
             </label>
             <input
-              id="confirmPassword"
-              name="confirmPassword"
+              id="password_confirmation"
+              name="password_confirmation"
               type="password"
               placeholder="Confirm your password"
               required
               className={`w-full px-4 py-2 rounded-lg bg-white/20 focus:bg-white/30 border focus:outline-none focus:ring-2 text-white placeholder-gray-200 ${
-                errors?.confirmPassword
+                errors?.password_confirmation
                   ? "border-red-500"
                   : "border-gray-300 focus:ring-purple-400"
               }`}
             />
-            {errors?.confirmPassword && (
+            {errors?.password_confirmation && (
               <p className="mt-1 text-sm text-red-300">
-                {errors.confirmPassword}
+                {errors.password_confirmation}
               </p>
             )}
           </div>

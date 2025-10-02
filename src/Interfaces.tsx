@@ -46,7 +46,7 @@ export interface ClientRegisterInterface {
     name?: string;
     email?: string;
     password?: string;
-    confirmPassword?: string;
+    password_confirmation?: string;
   };
   message: string | null;
   loading?: boolean;
