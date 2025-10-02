@@ -10,16 +10,13 @@ interface ClientLoginProps {
 }
 const UiForgotpassword = ({ onSubmit, errors, message }: ClientLoginProps) => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-600 via-purple-700 to-black">
-      <div className="bg-white/10 backdrop-blur-md p-10 rounded-2xl shadow-lg w-full max-w-md">
-        {/* Logo */}
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-900 via-purple-800 to-black">
+      <div className={`bg-white/20 backdrop-blur-md rounded-2xl shadow-xl p-8 border border-white/30 w-full max-w-md`}>
         <div className="flex justify-center mb-6">
           <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center text-white font-bold">
             Logo
           </div>
         </div>
-
-        {/* Title */}
         <h2 className="text-center text-2xl font-bold text-white mb-2">
           Forgot Password?
         </h2>
@@ -36,7 +33,6 @@ const UiForgotpassword = ({ onSubmit, errors, message }: ClientLoginProps) => {
           }}
           noValidate
         >
-          {/* Email Input */}
           <div className="mb-6">
             <label
               htmlFor="email"
@@ -62,17 +58,13 @@ const UiForgotpassword = ({ onSubmit, errors, message }: ClientLoginProps) => {
               <p className="mt-1 text-sm text-red-300">{errors.password}</p>
             )}
           </div>
-
-          {/* Submit Button */}
           <button
             type="submit"
-            className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-4 w-full rounded-lg transition"
+            className="bg-purple-700/80 text-white rounded-lg hover:bg-purple-800 transition py-2 w-full"
           >
             Send Reset Link
           </button>
         </form>
-
-        {/* Back to Login */}
         <p className="text-center text-sm text-gray-200 mt-4">
           <Link href="/en/login" className="underline hover:text-white">
             Back to login
