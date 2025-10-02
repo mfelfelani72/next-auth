@@ -1,9 +1,4 @@
 {
-  "login": {
-    "title": "عنوان لاگین"
-  },
-
-  "register": {
-    "title": "عنوان ثبت نام"
-  }
+  "login": { "title": "ورود", "button": "ثبت نام" },
+  "register": { "title": "ثبت نام", "button": "ورود" }
 }

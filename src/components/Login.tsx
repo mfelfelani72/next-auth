@@ -1,25 +1,33 @@
+/*
+ * @Author: Mohammad Felfelani
+ * @Email: mfelfelani72@gmail.com
+ * @Team:
+ * @Date: 2025-10-02 08:02:55
+ * @Description:
+ */
+
 "use client";
 
 import React, { useState } from "react";
 
 // Components
+
 import UiLogin from "./demo/UiLogin";
 
 // Interfaces
-import type { LoginProps } from "../types";
 
-interface LoginComponentProps {
-  onSubmit: (formData: FormData) => void;
-  errors?: { username?: string; password?: string };
-  message?: string | null;
-}
+import type { LoginInterface, ClientLoginInterface } from "../Interfaces";
 
 export default function Login({
   loginRoute,
   onGoogleLogin,
-  UiComponent, // ⬅️ اضافه شد
-}: LoginProps & { UiComponent?: React.ComponentType<LoginComponentProps> }) {
-  // states
+  UiComponent,
+  dict,
+  lang,
+}: LoginInterface & {
+  UiComponent?: React.ComponentType<ClientLoginInterface>;
+}) {
+  // States
   const [errors, setErrors] = useState<{
     username?: string;
     password?: string;
@@ -27,7 +35,7 @@ export default function Login({
   const [message, setMessage] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
-  // functions
+  // Functions
   const handleSubmit = async (formData: FormData) => {
     setMessage(null);
     setErrors({});
@@ -57,7 +65,7 @@ export default function Login({
       const res = await fetch(loginRoute, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ email: username, password }),
       });
 
       const data = await res.json();
@@ -75,7 +83,6 @@ export default function Login({
     }
   };
 
-  // ✅ اگر UiComponent پاس داده شده باشه، اون استفاده میشه
   const RenderUi = UiComponent || UiLogin;
 
   return (

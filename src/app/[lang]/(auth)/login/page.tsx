@@ -1,29 +1,36 @@
-"use client";
-import type { Metadata } from "next";
-import Head from "next/head";
-
-// export const metadata: Metadata = {
-//   title: "Login",
-//   description: "Login page",
-// };
+/*
+ * @Author: Mohammad Felfelani
+ * @Email: mfelfelani72@gmail.com
+ * @Team:
+ * @Date: 2025-10-02 06:53:53
+ * @Description:
+ */
 
 // Components
 
 import Login from "@/components/Login";
 
-// Interface
+// Functions
 
-import type { LoginProps } from "@/types";
+import { getDictionary } from "@/dictionaries";
 
-export default function Page({ loginRoute, onGoogleLogin }: LoginProps) {
+// Interfaces
+
+import { LangInterface } from "@/Interfaces";
+
+export default async function LoginPage({ params }: LangInterface) {
+  // Constants
+  const resolvedParams = await params;
+  const { lang = "en" } = resolvedParams ?? {};
+
+  // Functions
+  const dict = await getDictionary(lang);
+
   return (
     <>
-      <Head>
-        <title>Login Page</title>
-        <meta name="description" content="Login to your account" />
-      </Head>
-
       <Login
+        dict={await dict}
+        lang={lang}
         loginRoute={"/api/auth/login"}
         // onGoogleLogin={onGoogleLogin}
         // UiComponent={NewUiLogin}

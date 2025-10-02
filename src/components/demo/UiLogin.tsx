@@ -1,24 +1,32 @@
+/*
+ * @Author: Mohammad Felfelani
+ * @Email: mfelfelani72@gmail.com
+ * @Team:
+ * @Date: 2025-10-02 08:04:22
+ * @Description:
+ */
+
 "use client";
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-interface ClientLoginProps {
-  onSubmit: (formData: FormData) => void;
-  errors?: { username?: string; password?: string };
-  message?: string | null;
-}
+// Interfaces
+
+import { ClientLoginInterface } from "@/Interfaces";
 
 export default function UiLogin({
   onSubmit,
   errors,
   message,
-}: ClientLoginProps) {
+}: ClientLoginInterface) {
+  // States
   const [visible, setVisible] = useState(false);
 
+  // Functions
+
   useEffect(() => {
-    // trigger the animation on mount
     setVisible(true);
   }, []);
 
@@ -148,7 +156,11 @@ export default function UiLogin({
           {/* Link to Register */}
           <p className="text-center text-sm text-gray-200 mt-4">
             Don’t have an account?{" "}
-            <Link href="/en/register" className="underline hover:text-white">
+            <Link
+              href="/en/register"
+              className="underline hover:text-white"
+              scroll={false}
+            >
               Register
             </Link>
           </p>

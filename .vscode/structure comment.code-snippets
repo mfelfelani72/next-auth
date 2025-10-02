@@ -1,0 +1,37 @@
+{
+  "Components": {
+    "prefix": "comp",
+    "body": ["// Components"],
+    "description": "Insert Components"
+  },
+  "Containers": {
+    "prefix": "cont",
+    "body": ["// Containers"],
+    "description": "Insert Containers"
+  },
+  "Functions": {
+    "prefix": "func",
+    "body": ["// Functions"],
+    "description": "Insert Functions"
+  },
+  "Constants": {
+    "prefix": "cons",
+    "body": ["// Constants"],
+    "description": "Insert Constants"
+  },
+  "States": {
+    "prefix": "sta",
+    "body": ["// States"],
+    "description": "Insert States"
+  },
+  "Interfaces": {
+    "prefix": "inte",
+    "body": ["// Interfaces"],
+    "description": "Insert Interfaces"
+  },
+  "Zustand": {
+    "prefix": "zu",
+    "body": ["// Zustand"],
+    "description": "Insert Zustand"
+  }
+}

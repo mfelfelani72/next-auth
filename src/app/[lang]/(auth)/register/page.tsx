@@ -1,21 +1,38 @@
-"use client";
+/*
+ * @Author: Mohammad Felfelani
+ * @Email: mfelfelani72@gmail.com
+ * @Team:
+ * @Date: 2025-10-02 06:53:53
+ * @Description:
+ */
+
+// Components
 
 import Register from "@/components/Register";
 
-export default function RegisterPage() {
-  // const handleSubmitServer = async (formData: FormData) => {
-  //   const name = formData.get("name");
-  //   const email = formData.get("email");
-  //   const password = formData.get("password");
-  //   const confirmPassword = formData.get("confirmPassword");
+// Functions
 
-  //   console.log({ name, email, password, confirmPassword });
-  //   // Logic to create user or call backend
-  // };
+import { getDictionary } from "@/dictionaries";
+
+// Interfaces
+
+import { LangInterface } from "@/Interfaces";
+
+export default async function RegisterPage({ params }: LangInterface) {
+  // Constants
+  const resolvedParams = await params;
+  const { lang = "en" } = resolvedParams ?? {};
+  const dict = await getDictionary(lang);
 
   return (
-    <Register
-    // onSubmitServer={handleSubmitServer}
-    />
+    <>
+      <Register
+        dict={await dict}
+        lang={lang}
+        registerRoute={"/api/auth/register"}
+        // onGoogleRegister={onGoogleRegister}
+        // UiComponent={CustomUiRegister}
+      />
+    </>
   );
 }

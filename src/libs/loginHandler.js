@@ -1,10 +1,17 @@
+/**
+ * @Author: Mohammad Felfelani
+ * @Email: mfelfelani72@gmail.com
+ * @Team:
+ * @Date: 2025-10-02 10:50:06
+ * @Description:
+ */
 import { NextResponse } from "next/server";
 import cookie from "cookie";
 export function loginHandler(apiUrl) {
     return async function POST(req) {
         try {
             const body = await req.json();
-            const response = await fetch(`${apiUrl}`, {
+            const response = await fetch(apiUrl, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(body),
