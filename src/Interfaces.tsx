@@ -22,6 +22,8 @@ export interface ClientLoginInterface {
   onSubmit: (formData: FormData) => void;
   errors?: { username?: string; password?: string };
   message?: string | null;
+  dict:any;
+  lang:string
 }
 
 export interface LoginInterface {

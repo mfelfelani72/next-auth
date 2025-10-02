@@ -87,7 +87,13 @@ export default function Login({
 
   return (
     <>
-      <RenderUi onSubmit={handleSubmit} errors={errors} message={message} />
+      <RenderUi
+        onSubmit={handleSubmit}
+        errors={errors}
+        message={message}
+        dict={dict}
+        lang={lang}
+      />
 
       {loading && (
         <p className="text-center text-gray-200 mt-2">Logging in...</p>

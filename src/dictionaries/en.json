@@ -1,4 +1,12 @@
 {
-  "login": { "title": "Login", "button": "Go to Register" },
-  "register": { "title": "Register", "button": "Go to Login" }
+  "login": {
+    "title": "Login",
+    "welcom": "Welcome Back",
+    "button": "Go to Register",
+    "login_credentials": "Login with your credentials to continue"
+  },
+  "register": {
+    "title": "Register",
+    "button": "Go to Login"
+  }
 }

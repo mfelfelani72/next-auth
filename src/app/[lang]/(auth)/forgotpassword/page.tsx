@@ -1,29 +1,9 @@
-"use client";
-import type { Metadata } from "next";
-import Head from "next/head";
+import React from 'react'
 
-// export const metadata: Metadata = {
-//   title: "forgot password",
-//   description: "Forgotpassword Page",
-// };
-
-// Components
-
-import ForgotPassword from "@/components/ForgotPassword";
-
-// Interface
-
-import type { LoginProps } from "@/types";
-
-export default function Page({ loginRoute, onGoogleLogin }: LoginProps) {
+const page = () => {
   return (
-    <>
-      <Head>
-        <title>Forgot Password</title>
-        <meta name="description" content="Reset your password" />
-      </Head>
-
-      <ForgotPassword />
-    </>
-  );
+    <div>page forgot</div>
+  )
 }
+
+export default page

@@ -1,4 +1,9 @@
 {
-  "login": { "title": "ورود", "button": "ثبت نام" },
+  "login": {
+    "title": "ورود",
+    "welcom": "خوش آمدید",
+    "button": "ثبت نام",
+    "login_credentials": "برای ورود نام کاربری و گذرواژه را وارد نمایید"
+  },
   "register": { "title": "ثبت نام", "button": "ورود" }
 }

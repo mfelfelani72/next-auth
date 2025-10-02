@@ -20,6 +20,8 @@ export default function UiLogin({
   onSubmit,
   errors,
   message,
+  dict,
+  lang,
 }: ClientLoginInterface) {
   // States
   const [visible, setVisible] = useState(false);
@@ -51,10 +53,10 @@ export default function UiLogin({
 
         {/* Title */}
         <h1 className="text-2xl font-bold text-center text-white mb-2">
-          Welcome Back
+          {dict.login.welcom}
         </h1>
         <p className="text-center text-gray-200 mb-6 text-sm">
-          Login with your credentials to continue
+          {dict.login.login_credentials}
         </p>
 
         {message && (
@@ -166,13 +168,19 @@ export default function UiLogin({
           </p>
           <p className="text-center text-sm text-gray-200 mt-4">
             Forgot your password?{" "}
-            <Link href="/en/forgotpassword" className="underline hover:text-white">
+            <Link
+              href="/en/forgotpassword"
+              className="underline hover:text-white"
+            >
               Reset
             </Link>
           </p>
           <p className="text-center text-sm text-gray-200 mt-4">
-            Want to change your password? {" "}
-            <Link href="/en/changepassword" className="underline hover:text-white">
+            Want to change your password?{" "}
+            <Link
+              href="/en/changepassword"
+              className="underline hover:text-white"
+            >
               Change
             </Link>
           </p>
