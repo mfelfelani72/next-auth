@@ -140,6 +140,7 @@ export default function UiRegister({
           <Link
             href="/en/login"
             className="underline hover:text-white transition-colors"
+            scroll={false}
           >
             Log in
           </Link>

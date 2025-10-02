@@ -156,7 +156,11 @@ export default function UiLogin({
           {/* Link to Register */}
           <p className="text-center text-sm text-gray-200 mt-4">
             Don’t have an account?{" "}
-            <Link href="/en/register" className="underline hover:text-white">
+            <Link
+              href="/en/register"
+              className="underline hover:text-white"
+              scroll={false}
+            >
               Register
             </Link>
           </p>
