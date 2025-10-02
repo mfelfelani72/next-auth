@@ -32,3 +32,24 @@ export interface LoginInterface {
   lang: string;
   UiComponent?: React.ComponentType<ClientLoginInterface>;
 }
+
+export interface RegisterInterface {
+  registerRoute: string;
+  onGoogleRegister?: () => void;
+  dict?: any;
+  lang?: string;
+}
+
+export interface ClientRegisterInterface {
+  onSubmit: (formData: FormData) => void;
+  errors: {
+    name?: string;
+    email?: string;
+    password?: string;
+    confirmPassword?: string;
+  };
+  message: string | null;
+  loading?: boolean;
+  dict?: any;
+  lang?: string;
+}

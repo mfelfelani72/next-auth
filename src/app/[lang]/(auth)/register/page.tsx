@@ -29,11 +29,10 @@ export default async function RegisterPage({ params }: LangInterface) {
       <Register
         dict={await dict}
         lang={lang}
-        loginRoute={"/api/auth/login"}
-        // onGoogleLogin={onGoogleLogin}
-        // UiComponent={NewUiLogin}
+        registerRoute={"/api/auth/register"}
+        // onGoogleRegister={onGoogleRegister}
+        // UiComponent={CustomUiRegister}
       />
-      ;
     </>
   );
 }
