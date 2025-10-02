@@ -1,7 +1,7 @@
 // src/app/[lang]/(auth)/login/page.tsx
 import { getDictionary } from "@/dictionaries";
-import LoginPageClient from "../../../../components/UiLogin";
-import LangSwitcher from "../../../../components/LangSwitcher";
+import LoginPageClient from "../../../components/UiLogin";
+import LangSwitcher from "@/app/components/LangSwitcher";
 
 interface Props {
   params: { lang?: string } | Promise<{ lang?: string }>;

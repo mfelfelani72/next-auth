@@ -1,9 +1,4 @@
 {
-  "login": {
-    "title": "login title"
-  },
-
-  "register": {
-    "title": "register title"
-  }
+  "login": { "title": "Login", "button": "Go to Register" },
+  "register": { "title": "Register", "button": "Go to Login" }
 }

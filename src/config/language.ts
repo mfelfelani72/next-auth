@@ -1,6 +1,6 @@
 export const languages = {
-  en: { dir: "ltr", name: "English" },
-  fa: { dir: "rtl", name: "فارسی" },
+  en: { dir: "ltr" },
+  fa: { dir: "rtl" },
 } as const;
 
 export type Lang = keyof typeof languages;
