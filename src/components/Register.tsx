@@ -10,12 +10,7 @@
 import { useState } from "react";
 import UiRegister from "./demo/UiRegister";
 
-interface RegisterProps {
-  onSubmitServer: (formData: FormData) => void;
-}
-
 // Interfaces
-
 import type { LoginInterface, ClientLoginInterface } from "../Interfaces";
 
 export default function Register({
@@ -37,14 +32,34 @@ export default function Register({
     const password = formData.get("password")?.toString();
     const confirmPassword = formData.get("confirmPassword")?.toString();
 
-    if (!name) newErrors.name = "Name is required";
-    if (!email) newErrors.email = "Email is required";
-    if (!password) newErrors.password = "Password is required";
-    else if (password.length < 6)
+    // Name validation
+    if (!name) {
+      newErrors.name = "Name is required";
+    } else if (name.length < 2) {
+      newErrors.name = "Name must be at least 2 characters";
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email) {
+      newErrors.email = "Email is required";
+    } else if (!emailRegex.test(email)) {
+      newErrors.email = "Please enter a valid email address";
+    }
+
+    // Password validation
+    if (!password) {
+      newErrors.password = "Password is required";
+    } else if (password.length < 6) {
       newErrors.password = "Password must be at least 6 characters";
-    if (!confirmPassword) newErrors.confirmPassword = "Confirm your password";
-    else if (password !== confirmPassword)
+    }
+
+    // Confirm password validation
+    if (!confirmPassword) {
+      newErrors.confirmPassword = "Please confirm your password";
+    } else if (password !== confirmPassword) {
       newErrors.confirmPassword = "Passwords do not match";
+    }
 
     return newErrors;
   };
@@ -54,7 +69,12 @@ export default function Register({
     setErrors(validationErrors);
     if (Object.keys(validationErrors).length === 0) {
       setMessage(null);
-      //   onSubmitServer(formData);
+      // onSubmitServer(formData);
+      console.log("Form submitted successfully:", {
+        name: formData.get("name"),
+        email: formData.get("email"),
+        password: formData.get("password"),
+      });
     } else {
       setMessage("Please fix the errors below.");
     }

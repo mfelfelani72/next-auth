@@ -23,7 +23,7 @@ export default function UiRegister({
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    setVisible(true); // simple fade+scale animation
+    setVisible(true);
   }, []);
 
   return (
@@ -66,33 +66,58 @@ export default function UiRegister({
           }}
           className="space-y-5"
         >
-          <input
-            name="name"
-            placeholder="Full Name"
-            className="w-full px-4 py-2 rounded-lg bg-white/20 text-white placeholder-gray-200"
-          />
-          <input
-            name="email"
-            type="email"
-            placeholder="Email"
-            className="w-full px-4 py-2 rounded-lg bg-white/20 text-white placeholder-gray-200"
-          />
-          <input
-            name="password"
-            type="password"
-            placeholder="Password"
-            className="w-full px-4 py-2 rounded-lg bg-white/20 text-white placeholder-gray-200"
-          />
-          <input
-            name="confirmPassword"
-            type="password"
-            placeholder="Confirm Password"
-            className="w-full px-4 py-2 rounded-lg bg-white/20 text-white placeholder-gray-200"
-          />
+          <div>
+            <input
+              name="name"
+              placeholder="Full Name"
+              className="w-full px-4 py-2 rounded-lg bg-white/20 text-white placeholder-gray-200 border border-transparent focus:border-white/50 focus:outline-none transition-colors"
+            />
+            {errors?.name && (
+              <p className="text-red-300 text-sm mt-1">{errors.name}</p>
+            )}
+          </div>
+
+          <div>
+            <input
+              name="email"
+              type="email"
+              placeholder="Email"
+              className="w-full px-4 py-2 rounded-lg bg-white/20 text-white placeholder-gray-200 border border-transparent focus:border-white/50 focus:outline-none transition-colors"
+            />
+            {errors?.email && (
+              <p className="text-red-300 text-sm mt-1">{errors.email}</p>
+            )}
+          </div>
+
+          <div>
+            <input
+              name="password"
+              type="password"
+              placeholder="Password"
+              className="w-full px-4 py-2 rounded-lg bg-white/20 text-white placeholder-gray-200 border border-transparent focus:border-white/50 focus:outline-none transition-colors"
+            />
+            {errors?.password && (
+              <p className="text-red-300 text-sm mt-1">{errors.password}</p>
+            )}
+          </div>
+
+          <div>
+            <input
+              name="confirmPassword"
+              type="password"
+              placeholder="Confirm Password"
+              className="w-full px-4 py-2 rounded-lg bg-white/20 text-white placeholder-gray-200 border border-transparent focus:border-white/50 focus:outline-none transition-colors"
+            />
+            {errors?.confirmPassword && (
+              <p className="text-red-300 text-sm mt-1">
+                {errors.confirmPassword}
+              </p>
+            )}
+          </div>
 
           <button
             type="submit"
-            className="w-full py-2 bg-purple-700/80 text-white rounded-lg hover:bg-purple-800 transition"
+            className="w-full py-2 bg-purple-700/80 text-white rounded-lg hover:bg-purple-800 transition font-medium"
           >
             Sign Up
           </button>
@@ -112,7 +137,10 @@ export default function UiRegister({
 
         <p className="text-center text-sm text-gray-200 mt-4">
           Already have an account?{" "}
-          <Link href="/en/login" className="underline hover:text-white">
+          <Link
+            href="/en/login"
+            className="underline hover:text-white transition-colors"
+          >
             Log in
           </Link>
         </p>
