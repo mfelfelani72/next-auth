@@ -33,9 +33,9 @@ export default function UiLogin({
   }, []);
 
   return (
-    <div className="fixed inset-0 overflow-hidden flex items-center justify-center bg-gradient-to-br from-purple-900 via-purple-800 to-black p-4">
+    <div className="fixed inset-0 overflow-hidden flex items-center justify-center bg-gradient-to-br from-purple-900 via-purple-800 to-black p-4 dark:from-gray-900 dark:via-gray-950 dark:to-black">
       <div
-        className={`w-full max-w-md bg-white/20 backdrop-blur-md rounded-2xl shadow-xl p-8 border border-white/30
+        className={`w-full max-w-md bg-white/20 dark:bg-black/30 backdrop-blur-md rounded-2xl shadow-xl p-8 border border-white/30 dark:border-gray-700
           transform transition-all duration-700 ease-out
           ${visible ? "opacity-100 scale-100" : "opacity-0 scale-95"}
         `}
@@ -52,10 +52,10 @@ export default function UiLogin({
         </div>
 
         {/* Title */}
-        <h1 className="text-2xl font-bold text-center text-white mb-2">
+        <h1 className="text-2xl font-bold text-center text-white dark:text-gray-100 mb-2">
           {dict.login.welcom}
         </h1>
-        <p className="text-center text-gray-200 mb-6 text-sm">
+        <p className="text-center text-gray-200 dark:text-gray-400 mb-6 text-sm">
           {dict.login.login_credentials}
         </p>
 
@@ -81,20 +81,20 @@ export default function UiLogin({
           <div>
             <label
               htmlFor="username"
-              className="block text-sm font-medium text-white mb-1"
+              className="block text-sm font-medium text-white dark:text-gray-200 mb-1"
             >
-              Username
+              {dict.login.username}
             </label>
             <input
               id="username"
               name="username"
               type="text"
-              placeholder="Enter your username"
+              placeholder={dict.login.enter_your_username}
               required
-              className={`w-full px-4 py-2 rounded-lg bg-white/20 focus:bg-white/30 border focus:outline-none focus:ring-2 text-white placeholder-gray-200 ${
+              className={`w-full px-4 py-2 rounded-lg bg-white/20 dark:bg-black/40 focus:bg-white/30 dark:focus:bg-black/50 border focus:outline-none focus:ring-2 text-white placeholder-gray-200 ${
                 errors?.username
                   ? "border-red-500"
-                  : "border-gray-300 focus:ring-purple-400"
+                  : "border-gray-300 focus:ring-purple-400 dark:border-gray-700 dark:focus:ring-purple-500"
               }`}
             />
             {errors?.username && (
@@ -105,20 +105,20 @@ export default function UiLogin({
           <div>
             <label
               htmlFor="password"
-              className="block text-sm font-medium text-white mb-1"
+              className="block text-sm font-medium text-white dark:text-gray-200 mb-1"
             >
-              Password
+              {dict.login.password}
             </label>
             <input
               id="password"
               name="password"
               type="password"
-              placeholder="Enter your password"
+              placeholder={dict.login.enter_your_password}
               required
-              className={`w-full px-4 py-2 rounded-lg bg-white/20 focus:bg-white/30 border focus:outline-none focus:ring-2 text-white placeholder-gray-200 ${
+              className={`w-full px-4 py-2 rounded-lg bg-white/20 dark:bg-black/40 focus:bg-white/30 dark:focus:bg-black/50 border focus:outline-none focus:ring-2 text-white placeholder-gray-200 ${
                 errors?.password
                   ? "border-red-500"
-                  : "border-gray-300 focus:ring-purple-400"
+                  : "border-gray-300 focus:ring-purple-400 dark:border-gray-700 dark:focus:ring-purple-500"
               }`}
             />
             {errors?.password && (
@@ -128,9 +128,9 @@ export default function UiLogin({
 
           <button
             type="submit"
-            className="w-full py-2 bg-purple-700/80 text-white rounded-lg hover:bg-purple-800 transition"
+            className="w-full py-2 bg-purple-700/80 dark:bg-purple-600/80 text-white rounded-lg hover:bg-purple-800 dark:hover:bg-purple-700 transition"
           >
-            Log In
+            {dict.login.log_in}
           </button>
 
           {/* Social Login Buttons */}
@@ -156,32 +156,32 @@ export default function UiLogin({
           </div>
 
           {/* Link to Register */}
-          <p className="text-center text-sm text-gray-200 mt-4">
-            Don’t have an account?{" "}
+          <p className="text-center text-sm text-gray-200 dark:text-gray-400 mt-4">
+            {dict.login.dont_have_an_account}{" "}
             <Link
               href="/en/register"
-              className="underline hover:text-white"
+              className="underline hover:text-white dark:hover:text-gray-100"
               scroll={false}
             >
-              Register
+              {dict.login.register}
             </Link>
           </p>
-          <p className="text-center text-sm text-gray-200 mt-4">
-            Forgot your password?{" "}
+          <p className="text-center text-sm text-gray-200 dark:text-gray-400 mt-4">
+            {dict.login.forgot_your_password}{" "}
             <Link
               href="/en/forgotpassword"
-              className="underline hover:text-white"
+              className="underline hover:text-white dark:hover:text-gray-100"
             >
-              Reset
+              {dict.login.reset}
             </Link>
           </p>
-          <p className="text-center text-sm text-gray-200 mt-4">
-            Want to change your password?{" "}
+          <p className="text-center text-sm text-gray-200 dark:text-gray-400 mt-4">
+            {dict.login.want_to_change_your_password}{" "}
             <Link
               href="/en/changepassword"
-              className="underline hover:text-white"
+              className="underline hover:text-white dark:hover:text-gray-100"
             >
-              Change
+              {dict.login.change}
             </Link>
           </p>
         </form>

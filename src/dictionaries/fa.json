@@ -3,7 +3,18 @@
     "title": "ورود",
     "welcom": "خوش آمدید",
     "button": "ثبت نام",
-    "login_credentials": "برای ورود نام کاربری و گذرواژه را وارد نمایید"
+    "login_credentials": "برای ورود نام کاربری و گذرواژه را وارد نمایید",
+    "username": "نام‌کاربری",
+    "enter_your_username": "نام‌کاربری خود را وارد کنید",
+    "password": "گذرواژه",
+    "enter_your_password": "گذرواژه‌ را وارد کنید",
+    "log_in": "وارد شوید",
+    "dont_have_an_account": "نام‌کاربری ندارید؟",
+    "register": "نام‌نویسی",
+    "forgot_your_password": "گذرواژه‌ات را فراموش کرده اید؟",
+    "reset": "از نو ساختن",
+    "want_to_change_your_password": "می‌خواهی گذرواژه‌ات را عوض کنی؟",
+    "change": "عوض کردن"
   },
   "register": { "title": "ثبت نام", "button": "ورود" }
 }

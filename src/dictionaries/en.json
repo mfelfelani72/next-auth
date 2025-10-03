@@ -3,7 +3,18 @@
     "title": "Login",
     "welcom": "Welcome Back",
     "button": "Go to Register",
-    "login_credentials": "Login with your credentials to continue"
+    "login_credentials": "Login with your credentials to continue",
+    "username": "Username",
+    "enter_your_username": "Enter your username",
+    "password": "Password",
+    "enter_your_password": "Enter your password",
+    "log_in": "Login",
+    "dont_have_an_account": "Don’t have an account?",
+    "register": "Register",
+    "forgot_your_password": "Forgot your password?",
+    "reset": "Reset",
+    "want_to_change_your_password": "Want to change your password?",
+    "change": "Change"
   },
   "register": {
     "title": "Register",
