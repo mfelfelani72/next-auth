@@ -114,7 +114,7 @@ function Nav({
 
   return (
     <header className="fixed inset-x-0 top-4 z-40 px-4">
-      <div className="max-w-5xl mx-auto bg-white/95 backdrop-blur-sm rounded-2xl p-3 flex items-center justify-between shadow-sm border">
+      <div className="max-w-5xl mx-auto bg-white/95 backdrop-blur-sm rounded-2xl p-3 flex items-center justify-between shadow-sm">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-lg bg-gradient-to-tr from-indigo-600 to-pink-500 flex items-center justify-center font-bold text-white">
             AR
@@ -290,7 +290,7 @@ export default function RootPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white to-slate-50 text-slate-900 text-sm">
+    <div className="min-h-screen bg-gradient-to-br from-sky-50 to-slate-50 text-slate-900 text-sm">
       <Nav active={active} onToggleMobile={() => setMobileOpen((s) => !s)} />
       <div className="pt-28 px-4">
         <MobileDrawer
