@@ -7,9 +7,6 @@
  */
 
 
-// این رو درست کن معلوم نیست چی به چیه اینجا ولی کار میکنه
-
-
 "use client";
 
 import React, { useState } from "react";
@@ -20,7 +17,7 @@ import UiForgotPassword from "./demo/UiForgotPassword";
 
 // Interfaces
 
-import type { LoginInterface, ClientLoginInterface } from "../Interfaces";
+import type { LoginInterface, ClientForgotPasswordInterface } from "../Interfaces";
 
 export default function ForgotPassword({
   loginRoute,
@@ -29,8 +26,7 @@ export default function ForgotPassword({
   dict,
   lang,
 }: LoginInterface & {
-  UiComponent?: React.ComponentType<ClientLoginInterface>;
-//   اینجا باید چند تا چیز میز باشه تو فایل اینترفیس ولی نیست
+  UiComponent?: React.ComponentType<ClientForgotPasswordInterface>;
 }) {
   // States
 

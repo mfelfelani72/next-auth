@@ -10,6 +10,7 @@ export default function UiForgotPassword({
   errors,
   message,
   dict,
+  lang,
 }: ClientLoginInterface) {
   const [visible, setVisible] = useState(false);
 
@@ -39,11 +40,10 @@ export default function UiForgotPassword({
 
         {/* Title */}
         <h1 className="text-2xl font-bold text-center text-gray-900 dark:text-white mb-2">
-          Forgot Password?
+          {dict.forgotpassword.forgot_password}
         </h1>
         <p className="text-center text-gray-600 dark:text-gray-400 mb-6 text-sm">
-          Lost your password? Please enter your email address. You will receive
-          a link to create a new password via email.
+          {dict.forgotpassword.discription}
         </p>
 
         {message && (
@@ -71,13 +71,13 @@ export default function UiForgotPassword({
               htmlFor="username"
               className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
             >
-              {dict.login.username}
+              {dict.forgotpassword.email_or_username}
             </label>
             <input
               id="username"
               name="username"
               type="text"
-              placeholder={dict.login.enter_your_username}
+              placeholder={dict.forgotpassword.enter_your_email_or_username}
               required
               className={`w-full px-4 py-2 rounded-lg border text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 
                 focus:outline-none focus:ring-2 focus:ring-purple-500 dark:focus:ring-purple-400
@@ -91,48 +91,22 @@ export default function UiForgotPassword({
               <p className="mt-1 text-sm text-red-500">{errors.username}</p>
             )}
           </div>
-          {/* Password */}
-          <div>
-            <label
-              htmlFor="password"
-              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
-            >
-              {dict.login.password}
-            </label>
-            <input
-              id="password"
-              name="password"
-              type="password"
-              placeholder={dict.login.enter_your_password}
-              required
-              className={`w-full px-4 py-2 rounded-lg border text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 
-                focus:outline-none focus:ring-2 focus:ring-purple-500 dark:focus:ring-purple-400
-                ${
-                  errors?.password
-                    ? "border-red-500"
-                    : "border-gray-300 dark:border-gray-600 focus:border-purple-500 dark:focus:border-purple-400"
-                }`}
-            />
-            {errors?.password && (
-              <p className="mt-1 text-sm text-red-500">{errors.password}</p>
-            )}
-          </div>
           {/* Submit Button */}
           <button
             type="submit"
             className="w-full py-2 bg-gradient-to-r from-indigo-500 to-pink-500 text-white font-semibold rounded-lg transition"
           >
-            Request
+            {dict.forgotpassword.request}
           </button>
           {/* Links */}
           <p className="text-center text-sm text-gray-600 dark:text-gray-400 mt-4">
-            Back to login{" "}
+            {dict.forgotpassword.back_to_login}{" "}
             <Link
               href="/en/login"
               className="underline font-medium text-[#06b6d4] dark:text-[#057f95] hover:text-[#268a9c] dark:hover:text-[#0cacc8]"
               scroll={false}
             >
-              login
+              {dict.login.login}
             </Link>
           </p>
         </form>

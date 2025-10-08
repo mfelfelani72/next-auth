@@ -54,10 +54,10 @@ export default function UiRegister({
 
         {/* Title */}
         <h1 className="text-2xl font-bold text-center text-gray-900 dark:text-white mb-2">
-          Register
+          {dict.register.title}
         </h1>
         <p className="text-center text-gray-600 dark:text-gray-400 mb-6 text-sm">
-          Register to start the journy
+          {dict.register.register_start}
         </p>
 
         {message && (
@@ -85,13 +85,13 @@ export default function UiRegister({
               htmlFor="name"
               className="block text-sm font-medium dark:text-white mb-1"
             >
-              Full Name
+              {dict.register.full_name}
             </label>
             <input
               id="name"
               name="name"
               type="text"
-              placeholder={dict.login.enter_your_username}
+              placeholder={dict.register.enter_your_name}
               required
               className={`w-full px-4 py-2 rounded-lg border dark:border-gray-600 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 
                 focus:outline-none focus:ring-2 focus:ring-purple-500 dark:focus:ring-purple-400 ${
@@ -111,13 +111,13 @@ export default function UiRegister({
               htmlFor="email"
               className="block text-sm font-medium dark:text-white mb-1"
             >
-              Email
+              {dict.register.email}
             </label>
             <input
               id="email"
               name="email"
               type="email"
-              placeholder="Enter your email"
+              placeholder={dict.register.enter_your_email}
               required
               className={`w-full px-4 py-2 rounded-lg border dark:border-gray-600 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 
                 focus:outline-none focus:ring-2 focus:ring-purple-500 dark:focus:ring-purple-400 ${
@@ -137,13 +137,13 @@ export default function UiRegister({
               htmlFor="password"
               className="block text-sm font-medium dark:text-white mb-1"
             >
-              Password
+              {dict.register.password}
             </label>
             <input
               id="password"
               name="password"
               type="password"
-              placeholder="Enter your password"
+              placeholder={dict.register.enter_your_password}
               required
               className={`w-full px-4 py-2 rounded-lg border dark:border-gray-600 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 
                 focus:outline-none focus:ring-2 focus:ring-purple-500 dark:focus:ring-purple-400 ${
@@ -163,13 +163,13 @@ export default function UiRegister({
               htmlFor="password_confirmation"
               className="block text-sm font-medium dark:text-white mb-1"
             >
-              Confirm Password
+              {dict.register.confirm_password}
             </label>
             <input
               id="password_confirmation"
               name="password_confirmation"
               type="password"
-              placeholder="Confirm your password"
+              placeholder={dict.register.confirm_your_password}
               required
               className={`w-full px-4 py-2 rounded-lg border dark:border-gray-600 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 
                 focus:outline-none focus:ring-2 focus:ring-purple-500 dark:focus:ring-purple-400 ${
@@ -189,7 +189,7 @@ export default function UiRegister({
             type="submit"
             className="w-full py-2 bg-gradient-to-r from-indigo-500 to-pink-500 text-white rounded-lg hover:bg-purple-800 transition"
           >
-            Register
+            {dict.register.register}
           </button>
 
           {/* Social Login */}
@@ -240,12 +240,12 @@ export default function UiRegister({
           </div>
           {/* Link to login */}
           <p className="text-center text-sm text-gray-600 dark:text-gray-400 mt-2">
-            Already have an account?{" "}
+            {dict.register.already_have_an_account}{" "}
             <Link
               href="/en/login"
               className="underline font-medium text-[#06b6d4] dark:text-[#057f95] hover:text-[#268a9c] dark:hover:text-[#0cacc8]"
             >
-              Login
+              {dict.register.login}
             </Link>
           </p>
         </form>

@@ -8,7 +8,7 @@
     "enter_your_username": "نام‌کاربری خود را وارد کنید",
     "password": "گذرواژه",
     "enter_your_password": "گذرواژه‌ را وارد کنید",
-    "log_in": "وارد شوید",
+    "login": "وارد شوید",
     "dont_have_an_account": "نام‌کاربری ندارید؟",
     "register": "نام‌نویسی",
     "forgot_your_password": "گذرواژه‌ات را فراموش کرده اید؟",
@@ -16,5 +16,21 @@
     "want_to_change_your_password": "می‌خواهی گذرواژه‌ات را عوض کنی؟",
     "change": "عوض کردن"
   },
-  "register": { "title": "ثبت نام", "button": "ورود" }
+  "register": {
+    "button": "ورود",
+    "title": "نام‌نویسی",
+    "register_start": "برای آغاز ماجرا نام‌نویسی کنید",
+    "full_name": "نام و کامل",
+    "enter_your_name": "نام خود را بنویسید",
+    "email": "ایمیل",
+    "enter_your_email": "ایمیل خود را بنویسید",
+    "password": "گذرواژه",
+    "enter_your_password": "گذرواژه خود را بنویسید",
+    "enter_your": "بنویسید",
+    "confirm_password": "بازبینی گذرواژه",
+    "confirm_your_password": "گذرواژه خود را دوباره بنویسید",
+    "register": "نام‌نویسی",
+    "already_have_an_account": "پیش‌تر حساب دارید؟",
+    "login": "وارد شوید"
+  }
 }

@@ -121,7 +121,7 @@ export default function UiLogin({
             type="submit"
             className="w-full py-2 bg-gradient-to-r from-indigo-500 to-pink-500 text-white font-semibold rounded-lg transition"
           >
-            {dict.login.log_in}
+            {dict.login.login}
           </button>
 
           {/* Social Login */}

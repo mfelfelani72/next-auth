@@ -55,3 +55,14 @@ export interface ClientRegisterInterface {
   dict?: any;
   lang?: string;
 }
+
+export interface ClientForgotPasswordInterface {
+  onsubmit: (FormData: FormData) => void;
+  errors: {
+    email?: string;
+  }
+  message: string | null;
+  loading?: boolean;
+  dict?: any;
+  lang?: string;
+}
