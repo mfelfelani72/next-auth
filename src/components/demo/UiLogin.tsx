@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useTranslation } from "@/hooks/useTranslation";
 
 interface ClientLoginProps {
   onSubmit: (formData: FormData) => void;
@@ -15,6 +16,8 @@ export default function UiLogin({
   errors,
   message,
 }: ClientLoginProps) {
+
+  const {t} = useTranslation();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -43,7 +46,7 @@ export default function UiLogin({
 
         {/* Title */}
         <h1 className="text-2xl font-bold text-center text-white mb-2">
-          Welcome Back
+          {t("login")}
         </h1>
         <p className="text-center text-gray-200 mb-6 text-sm">
           Login with your credentials to continue

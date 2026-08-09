@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import cookie from "cookie";
+
+
+const cookie = require("cookie"); 
 
 export async function POST(req: NextRequest) {
   try {
@@ -13,8 +15,12 @@ export async function POST(req: NextRequest) {
 
     const data = await response.json();
 
+    console.log(data,"fsdfsdf")
+
     if (response.ok && data.accessToken) {
       const headers = new Headers();
+      
+     
       headers.append(
         "Set-Cookie",
         cookie.serialize("accessToken", data.accessToken, {

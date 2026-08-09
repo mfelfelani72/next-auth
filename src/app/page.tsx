@@ -22,5 +22,5 @@ export default async function RootPage() {
     }
   }
 
-  redirect(`/${locale}/${process.env.BASE_ROUTE}`);
+  redirect(`/${locale}/auth/${process.env.BASE_ROUTE}`);
 }

@@ -32,13 +32,13 @@ export default function Login({
     setMessage(null);
     setErrors({});
 
-    const username = (formData.get("username") as string) || "";
+    const email = (formData.get("username") as string) || "";
     const password = (formData.get("password") as string) || "";
 
     const newErrors: typeof errors = {};
 
-    if (!username.trim()) newErrors.username = "Username is required";
-    else if (username.length < 3)
+    if (!email.trim()) newErrors.username = "Username is required";
+    else if (email.length < 3)
       newErrors.username = "Username must be at least 3 characters";
 
     if (!password) newErrors.password = "Password is required";
@@ -57,7 +57,7 @@ export default function Login({
       const res = await fetch(loginRoute, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ email, password }),
       });
 
       const data = await res.json();
@@ -78,22 +78,15 @@ export default function Login({
   const RenderUi = UiComponent || UiLogin;
 
   return (
-    // 🌟 این بخش جدیدترین طراحی پس‌زمینه و چیدمان مرکزی است
     <div className="relative min-h-screen w-full flex items-center justify-center bg-[#09090b] overflow-hidden">
-      
-      {/* افکت‌های پس‌زمینه (Mesh Gradient / اورورا) */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* گوی نورانی ۱ (آبی/بنفش) */}
-        <div className="absolute -top-40 -right-40 w-[800px] h-[800px] bg-gradient-to-br from-indigo-600/30 via-purple-600/20 to-transparent rounded-full blur-[120px] animate-pulse-slow pointer-events-none" />
-        
-        {/* گوی نورانی ۲ (سبز/فیروزه‌ای) */}
-        <div className="absolute -bottom-40 -left-40 w-[800px] h-[800px] bg-gradient-to-tr from-emerald-500/20 via-blue-500/10 to-transparent rounded-full blur-[120px] animate-pulse-slow delay-1000 pointer-events-none" />
-        
-        {/* نویز (بافت پارچه‌ای ظریف) */}
+        <div className="absolute -top-40 -right-40 w-200 h-200 bg-linear-to-br from-indigo-600/30 via-purple-600/20 to-transparent rounded-full blur-[120px] animate-pulse-slow pointer-events-none" />
+
+        <div className="absolute -bottom-40 -left-40 w-200 h-200 bg-linear-to-tr from-emerald-500/20 via-blue-500/10 to-transparent rounded-full blur-[120px] animate-pulse-slow delay-1000 pointer-events-none" />
+
         <div className="absolute inset-0 opacity-[0.05] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] pointer-events-none"></div>
       </div>
 
-      {/* کانتینر اصلی کارت */}
       <div className="relative z-10 w-full max-w-md px-4">
         <RenderUi onSubmit={handleSubmit} errors={errors} message={message} />
 
