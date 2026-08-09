@@ -16,8 +16,7 @@ export default function UiLogin({
   errors,
   message,
 }: ClientLoginProps) {
-
-  const {t} = useTranslation();
+  const { t } = useTranslation();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -34,13 +33,14 @@ export default function UiLogin({
         `}
       >
         {/* Picture / Logo */}
-        <div className="flex justify-center mb-6">
+        <div className="relative w-40 h-20 mx-auto mb-8">
           <Image
-            src="/logo.png"
+            src="/images/png/logo.png"
             alt="Logo"
-            width={80}
-            height={80}
-            className="rounded-full shadow"
+            fill
+            sizes="auto"
+            className="object-contain"
+            priority
           />
         </div>
 
