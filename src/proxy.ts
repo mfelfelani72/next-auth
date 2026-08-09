@@ -14,7 +14,7 @@ import type { NextRequest } from "next/server";
 import { detectDeviceFromUA } from "@/libraries/detectDeviceFromUA";
 
 // ⚠️ نکته مهم: نام تابع باید `middleware` باشد، نه `proxy`
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const url = request.nextUrl.clone();
   
   // ----------------------------
