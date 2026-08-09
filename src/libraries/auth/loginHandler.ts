@@ -3,12 +3,10 @@
  * @Email: mfelfelani72@gmail.com
  * @Team:
  * @Date: 2025-12-31 06:00:17
- * @Description: Login handler
+ * @Description: Login handler with Next.js native cookies
  */
 
 import { NextRequest, NextResponse } from "next/server";
-
-const cookie = require("cookie");
 
 export function loginHandler(apiUrl: string) {
   return async function POST(req: NextRequest) {
@@ -23,29 +21,69 @@ export function loginHandler(apiUrl: string) {
 
       const data = await response.json();
 
-      if (response.ok && data.accessToken) {
-        const headers = new Headers();
-        headers.append(
-          "Set-Cookie",
-          cookie.serialize("accessToken", data.accessToken, {
-            httpOnly: true,
-            secure: process.env.NODE_ENV === "production",
-            sameSite: "strict",
-            path: "/",
-            maxAge: 60 * 15,
-          }),
-        );
-        return NextResponse.json({ message: "Login successful" }, { headers });
+      if (data.success && data.data?.token?.access_token) {
+        const res = NextResponse.json({
+          message: "Login successful",
+          success: true,
+          user: data.data.user,
+        });
+
+        const cookieOptions = {
+          secure: process.env.NODE_ENV === "production",
+          sameSite: "strict" as const,
+          path: "/",
+          maxAge: 60 * 60 * 24 * 7,
+        };
+
+        // accessToken
+        res.cookies.set({
+          name: "accessToken",
+          value: data.data.token.access_token,
+          ...cookieOptions,
+          httpOnly: true,
+        });
+
+        // tokenType
+        res.cookies.set({
+          name: "tokenType",
+          value: data.data.token.token_type || "Bearer",
+          ...cookieOptions,
+          httpOnly: true,
+        });
+
+        // user
+        res.cookies.set({
+          name: "user",
+          value: JSON.stringify(data.data.user),
+          ...cookieOptions,
+          httpOnly: false,
+        });
+
+        // isLoggedIn
+        res.cookies.set({
+          name: "isLoggedIn",
+          value: "true",
+          ...cookieOptions,
+          httpOnly: false,
+        });
+
+        return res;
       }
 
       return NextResponse.json(
-        { message: data.message || "Login failed" },
-        { status: response.status },
+        {
+          message: data.message || "Login failed",
+          success: false,
+        },
+        { status: response.status || 401 },
       );
     } catch (err: any) {
       console.error("Login error:", err);
       return NextResponse.json(
-        { message: err.message || "Internal server error" },
+        {
+          message: err.message || "Internal server error",
+          success: false,
+        },
         { status: 500 },
       );
     }
