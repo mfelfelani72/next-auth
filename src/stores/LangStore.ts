@@ -3,14 +3,12 @@
  * @Email: mfelfelani72@gmail.com
  * @Team:
  * @Date: 2025-10-05 12:41:14
- * @Description: Lang store with JSON cookie
+ * @Description: Lang store with API routes
  */
 
 import { create } from "zustand";
-import { isBrowser, setCookie, getCookie } from "@/utilities/app/cookieUtils";
-import { persist, createJSONStorage } from "zustand/middleware";
 
-// Constants
+// Configurations
 
 import { languages, Lang } from "@/configs/language";
 
@@ -18,127 +16,88 @@ import { languages, Lang } from "@/configs/language";
 
 import { LangState } from "@/interfaces/dictionary";
 
-// Functions
+export const useLangStore = create<LangState>()((set, get) => ({
+  lang: "en" as Lang,
+  dir: "ltr" as "ltr" | "rtl",
+  isInitialized: false,
+  refreshKey: 0,
 
-const isValidLang = (lang: unknown): lang is Lang => {
-  return typeof lang === "string" && lang in languages;
-};
+  setLang: async (newLang: Lang) => {
+    const langConfig = languages[newLang];
+    const dir = langConfig?.dir || "ltr";
 
-const cookieStorage = {
-  getItem: (name: string): string | null => {
-    if (!isBrowser()) return null;
     try {
-      return localStorage.getItem(name);
-    } catch (error) {
-      console.error("Error reading from storage:", error);
-      return null;
-    }
-  },
-  setItem: (name: string, value: string): void => {
-    if (!isBrowser()) return;
-    try {
-      localStorage.setItem(name, value);
-    } catch (error) {
-      console.error("Error writing to storage:", error);
-    }
-  },
-  removeItem: (name: string): void => {
-    if (!isBrowser()) return;
-    try {
-      localStorage.removeItem(name);
-    } catch (error) {
-      console.error("Error removing from storage:", error);
-    }
-  },
-};
-
-export const useLangStore = create<LangState>()(
-  persist(
-    (set, get) => ({
-      lang: "en",
-      dir: languages.en.dir,
-      isInitialized: false,
-      refreshKey: 0,
-
-      setLang: (newLang: Lang) => {
-        const dir = languages[newLang].dir;
-
-        set({
+      const response = await fetch("/api/set-lang", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
           lang: newLang,
-          dir,
-          refreshKey: get().refreshKey + 1,
-        });
+          dir: dir,
+        }),
+      });
 
-        if (isBrowser()) {
-          const langCookieValue = JSON.stringify({
-            state: {
-              lang: newLang,
-              dir: dir,
-            },
-          });
+      if (!response.ok) {
+        throw new Error("Failed to set language");
+      }
+    } catch (error) {
+      console.error("Error setting language:", error);
+    }
 
-          setCookie("app_lang", langCookieValue);
-        }
-      },
+    set({
+      lang: newLang,
+      dir,
+      refreshKey: get().refreshKey + 1,
+    });
+  },
 
-      triggerRefresh: () => {
-        set({ refreshKey: get().refreshKey + 1 });
-      },
+  triggerRefresh: () => {
+    set({ refreshKey: get().refreshKey + 1 });
+  },
 
-      initializeLang: (langFromUrl?: string) => {
-        const { isInitialized } = get();
-        if (isInitialized) return;
+  initializeLang: async (langFromUrl?: string) => {
+    const { isInitialized } = get();
+    if (isInitialized) {
+      console.log("⏭️ Already initialized");
+      return;
+    }
 
-        let finalLang: Lang = "en";
-        let finalDir: "ltr" | "rtl" = languages.en.dir;
+    let finalLang: Lang = "en";
+    let finalDir: "ltr" | "rtl" = "ltr";
 
-        if (langFromUrl && isValidLang(langFromUrl)) {
-          finalLang = langFromUrl;
-          finalDir = languages[finalLang].dir;
-        } else if (isBrowser()) {
-          const savedLangCookie = getCookie("app_lang");
-          if (savedLangCookie) {
-            try {
-              const parsed = JSON.parse(savedLangCookie);
-              if (parsed.state) {
-                if (parsed.state.lang && isValidLang(parsed.state.lang)) {
-                  finalLang = parsed.state.lang;
-                }
-                if (
-                  parsed.state.dir &&
-                  (parsed.state.dir === "ltr" || parsed.state.dir === "rtl")
-                ) {
-                  finalDir = parsed.state.dir;
-                }
-              }
-            } catch (error) {
-              console.error("Error parsing lang cookie:", error);
-            }
+    console.log("🔍 Initializing lang from URL:", langFromUrl);
+
+    if (langFromUrl && langFromUrl in languages) {
+      finalLang = langFromUrl as Lang;
+      finalDir = languages[finalLang].dir;
+    } else {
+      try {
+        const response = await fetch("/api/get-lang");
+        if (response.ok) {
+          const data = await response.json();
+          if (data.lang && data.lang in languages) {
+            finalLang = data.lang as Lang;
+            finalDir = data.dir || languages[finalLang].dir;
+            console.log(`✅ Lang from cookie via API: ${finalLang}`);
           }
         }
-
-        set({
-          lang: finalLang,
-          dir: finalDir,
-          isInitialized: true,
-        });
-      },
-    }),
-    {
-      name: "lang-store",
-      storage: createJSONStorage(() => cookieStorage),
-      partialize: (state) => ({
-        lang: state.lang,
-        dir: state.dir,
-        isInitialized: state.isInitialized,
-        refreshKey: state.refreshKey,
-      }),
+      } catch (error) {
+        console.error("Error getting cookie:", error);
+      }
     }
-  )
-);
 
-export const initializeLang = (langFromUrl?: string): void => {
-  if (isBrowser()) {
-    useLangStore.getState().initializeLang(langFromUrl);
+    set({
+      lang: finalLang,
+      dir: finalDir,
+      isInitialized: true,
+    });
+  },
+}));
+
+// Helper function
+export const initializeLang = async (langFromUrl?: string): Promise<void> => {
+  if (typeof window !== "undefined") {
+    await useLangStore.getState().initializeLang(langFromUrl);
   }
 };

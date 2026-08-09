@@ -4,4 +4,4 @@ export { default as Login } from "./components/Login";
 
 // Server handlers
 
-export { loginHandler } from "./libraries/loginHandler";
+export { loginHandler } from "./libraries/auth/loginHandler";

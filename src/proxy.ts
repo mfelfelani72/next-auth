@@ -63,7 +63,7 @@ export async function proxy(request: NextRequest) {
   return NextResponse.next();
 }
 
-// ⚠️ نکته مهم: تنظیمات config باید خارج از تابع باشد
+
 export const config = {
   matcher: ["/", "/:path*"],
 };

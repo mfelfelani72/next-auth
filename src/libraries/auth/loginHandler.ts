@@ -1,5 +1,14 @@
+/*
+ * @Author: Mohammad Felfelani
+ * @Email: mfelfelani72@gmail.com
+ * @Team:
+ * @Date: 2025-12-31 06:00:17
+ * @Description: Login handler
+ */
+
 import { NextRequest, NextResponse } from "next/server";
-import cookie from "cookie";
+
+const cookie = require("cookie");
 
 export function loginHandler(apiUrl: string) {
   return async function POST(req: NextRequest) {
@@ -23,18 +32,22 @@ export function loginHandler(apiUrl: string) {
             secure: process.env.NODE_ENV === "production",
             sameSite: "strict",
             path: "/",
-            maxAge: 60 * 15, // 15 دقیقه
-          })
+            maxAge: 60 * 15,
+          }),
         );
         return NextResponse.json({ message: "Login successful" }, { headers });
       }
 
       return NextResponse.json(
         { message: data.message || "Login failed" },
-        { status: response.status }
+        { status: response.status },
       );
     } catch (err: any) {
-      return NextResponse.json({ message: err.message }, { status: 500 });
+      console.error("Login error:", err);
+      return NextResponse.json(
+        { message: err.message || "Internal server error" },
+        { status: 500 },
+      );
     }
   };
 }
