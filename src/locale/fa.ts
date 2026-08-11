@@ -6,9 +6,15 @@
  * @Description:
  */
 
+import { getMeta } from "./meta/index";
+
 import auth_fa from "./auth/fa.json";
 
+const meta = await getMeta("fa");
+
 const fa = {
+  meta,
+
   ...auth_fa,
 };
 

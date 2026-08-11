@@ -4,11 +4,27 @@
     "noEmit": false,
     "declaration": true,
     "outDir": "dist",
+    "rootDir": "src",
     "jsx": "react-jsx",
     "incremental": false,
     "tsBuildInfoFile": null,
     "composite": false
   },
-  "include": ["src/index.ts", "src/components/!(demo)/**/*"],
-  "exclude": ["app", "**/app/**", "next.config.*", "*.test.*", "*.spec.*"]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.js",
+    "src/**/*.jsx"
+  ],
+  "exclude": [
+    "app",
+    "**/app/**",
+    "next.config.*",
+    "*.test.*",
+    "*.spec.*",
+    "**/*.test.*",
+    "**/*.spec.*",
+    "**/demo/**",
+    "**/stories/**"
+  ]
 }

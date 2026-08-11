@@ -6,9 +6,16 @@
  * @Description:
  */
 
+import { getMeta } from "./meta/index";
+
+
 import auth_en from "./auth/en.json";
 
+const meta = await getMeta("en");
+
 const en = {
+  ...meta,
+  
   ...auth_en,
 };
 

@@ -8,7 +8,7 @@ interface LoginComponentProps {
     };
     message?: string | null;
 }
-export default function Login({ loginRoute, onGoogleLogin, UiComponent, }: LoginProps & {
+export default function Login({ loginRoute, UiComponent, }: LoginProps & {
     UiComponent?: React.ComponentType<LoginComponentProps>;
-}): import("react/jsx-runtime").JSX.Element;
+}): React.JSX.Element;
 export {};

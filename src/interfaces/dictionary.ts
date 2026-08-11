@@ -8,9 +8,20 @@
 
 // Interfaces
 
+import { OpenGraphMeta, TwitterMeta } from "@/interfaces/meta";
 import { Lang } from "@/configs/language";
 
-export type Dictionary = Record<string, string>;
+export type Dictionary = Record<
+  string,
+  | string
+  | {
+      title: string;
+      description: string;
+      keywords?: string[];
+      openGraph?: OpenGraphMeta;
+      twitter?: TwitterMeta;
+    }
+>;
 
 export interface LangState {
   lang: Lang;
@@ -19,5 +30,5 @@ export interface LangState {
   isInitialized: boolean;
   setLang: (newLang: Lang) => void;
   initializeLang: (langFromUrl?: string) => void;
-  triggerRefresh?: () => void;
+  triggerRefresh?: () => void; 
 }

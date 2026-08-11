@@ -7,7 +7,7 @@
  */
 
 // Configs
-import { Lang, languages } from "@/configs/language";
+import { Lang, languages } from "../../configs/language";
 
 export const numberHelper = (
   num: number | string,

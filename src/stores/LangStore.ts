@@ -10,11 +10,11 @@ import { create } from "zustand";
 
 // Configurations
 
-import { languages, Lang } from "@/configs/language";
+import { languages, Lang } from "../configs/language";
 
 // Interfaces
 
-import { LangState } from "@/interfaces/dictionary";
+import { LangState } from "../interfaces/dictionary";
 
 export const useLangStore = create<LangState>()((set, get) => ({
   lang: "en" as Lang,

@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useTranslation } from "@/hooks/useTranslation";
+import { useTranslation } from "../../hooks/useTranslation";
 
 interface ClientLoginProps {
   onSubmit: (formData: FormData) => void;

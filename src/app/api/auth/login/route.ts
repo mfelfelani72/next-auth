@@ -7,6 +7,6 @@
  * @Description: Login API Route
  */
 
-import { loginHandler } from "@/libraries/auth/loginHandler";
+import { loginHandler } from "../../../../libraries/auth/loginHandler";
 
 export const POST = loginHandler(`${process.env.API_URL}/login`);

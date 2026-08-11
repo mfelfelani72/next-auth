@@ -9,19 +9,17 @@ export async function POST(req: NextRequest) {
     if (!lang) {
       return NextResponse.json(
         { error: "Language is required" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
-    // ایجاد پاسخ
-    const res = NextResponse.json({ 
-      success: true, 
+    const res = NextResponse.json({
+      success: true,
       message: "Language set successfully",
       lang,
-      dir
+      dir,
     });
 
-    // ست کردن کوکی با متد سرور
     res.cookies.set({
       name: "app_lang",
       value: JSON.stringify({
@@ -31,20 +29,18 @@ export async function POST(req: NextRequest) {
         },
       }),
       path: "/",
-      maxAge: 60 * 60 * 24 * 30, // 30 روز
-      httpOnly: false, // مهم: باید false باشه تا جاوااسکریپت بتونه بخونش
+      maxAge: 60 * 60 * 24 * 30, // 30 days
+      httpOnly: false,
       sameSite: "lax",
       secure: process.env.NODE_ENV === "production",
     });
-
-    console.log(`✅ Cookie "app_lang" set via API:`, lang);
 
     return res;
   } catch (error: any) {
     console.error("Error setting language cookie:", error);
     return NextResponse.json(
       { error: error.message || "Internal server error" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

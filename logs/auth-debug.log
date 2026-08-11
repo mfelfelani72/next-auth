@@ -1,0 +1,103 @@
+[2026-08-10T07:51:10.667Z] ═══════════════════════════════════════════════════════
+[2026-08-10T07:51:10.671Z] 🔐 LOGIN HANDLER STARTED
+[2026-08-10T07:51:10.723Z] 🕐 Time: ۱۴۰۵/۵/۱۹, ۱۱:۲۱:۱۰
+[2026-08-10T07:51:10.724Z] 📂 Log file: /home/mohammad/projects/next-auth/logs/auth-debug.log
+[2026-08-10T07:51:10.725Z] ═══════════════════════════════════════════════════════
+[2026-08-10T07:51:10.726Z] 📋 REQUEST INFO:
+[2026-08-10T07:51:10.726Z]   - Method: POST
+[2026-08-10T07:51:10.727Z]   - URL: http://localhost:3000/api/auth/login
+[2026-08-10T07:51:10.728Z]   - Headers:
+{
+  "accept": "*/*",
+  "accept-encoding": "gzip, deflate, br, zstd",
+  "accept-language": "en-GB,en;q=0.9,de-DE;q=0.8,de;q=0.7,fa;q=0.6,sq;q=0.5,hy;q=0.4,tr;q=0.3,ja;q=0.2,ar;q=0.1",
+  "connection": "keep-alive",
+  "content-length": "56",
+  "content-type": "application/json",
+  "cookie": "device-type=desktop; app_lang=%7B%22state%22%3A%7B%22lang%22%3A%22fa%22%2C%22dir%22%3A%22rtl%22%7D%7D",
+  "host": "localhost:3000",
+  "origin": "http://localhost:3000",
+  "referer": "http://localhost:3000/fa/auth/login",
+  "sec-ch-ua": "\"Google Chrome\";v=\"149\", \"Chromium\";v=\"149\", \"Not)A;Brand\";v=\"24\"",
+  "sec-ch-ua-mobile": "?0",
+  "sec-ch-ua-platform": "\"Linux\"",
+  "sec-fetch-dest": "empty",
+  "sec-fetch-mode": "cors",
+  "sec-fetch-site": "same-origin",
+  "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36",
+  "x-forwarded-for": "::1",
+  "x-forwarded-host": "localhost:3000",
+  "x-forwarded-port": "3000",
+  "x-forwarded-proto": "http"
+}
+[2026-08-10T07:51:10.729Z] 📦 REQUEST BODY:
+{
+  "email": "mfelfelani72@gmail.com",
+  "password": "***"
+}
+[2026-08-10T07:51:10.730Z] 🚀 SENDING REQUEST TO: http://localhost/api/v1/auth/login
+[2026-08-10T07:51:11.080Z] ⏱️  Request took: 349ms
+[2026-08-10T07:51:11.081Z] 📥 RESPONSE:
+[2026-08-10T07:51:11.081Z]   - Status: 200 OK
+[2026-08-10T07:51:11.082Z]   - Headers:
+{
+  "access-control-allow-origin": "*",
+  "cache-control": "no-cache, private",
+  "connection": "keep-alive",
+  "content-type": "application/json",
+  "date": "Mon, 10 Aug 2026 07:51:11 GMT",
+  "server": "nginx/1.28.3",
+  "transfer-encoding": "chunked",
+  "x-powered-by": "PHP/8.4.24"
+}
+[2026-08-10T07:51:11.083Z] 📝 RESPONSE TEXT (first 1000 chars):
+"{\"success\":true,\"message\":\"Login successful.\",\"data\":{\"user\":{\"id\":1,\"name\":\"mohammad\",\"username\":\"mfelfelani72\",\"email\":\"mfelfelani72@gmail.com\",\"phone\":\"09150873107\",\"email_verified_at\":null,\"role\":\"user\",\"is_active\":true,\"avatar\":null,\"last_login_at\":null,\"last_login_ip\":null,\"created_at\":\"2026-08-09T07:28:04.000000Z\",\"updated_at\":\"2026-08-09T07:28:04.000000Z\",\"deleted_at\":null},\"token\":{\"access_token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIwMTlmZTU2ZS0xOTI1LTczZmMtOGFjOC05YzM2NWYzYTYzYjEiLCJqdGkiOiJkMWNmNzMzMGEzZDI3NjdjYmEyNjZhOTUyNjU0YTVmNDBiOTFhMTUzY2ZjMTFjZTBkYTg2MmIzZjFmMWE5NDkxM2Y5N2ZjNTIwM2I1ZGQ4ZCIsImlhdCI6MTc4NjM0ODI3MS4wNjgzMzEsIm5iZiI6MTc4NjM0ODI3MS4wNjgzMzMsImV4cCI6MTgxNzg4NDI3MS4wNjM0MzEsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.b6W1qs0Unf47YqczMjn5dcKz1yhTysVo2Zibqh4iEJIHl14lzFfj7-Uqy6wjAsTmqoApZYevdbcB0BirsbSMEk8J1sv5M3gO1H2FJv3cY9wcMZNRagS1mMhTHNLm3WBJHcIvcV8hcYmGhNW34sFoP3Hsci0qA23Y_Gp8B7oEBPmKbxjKSxo99ym_ze7n2geP4fCe1YywUJz5KAGCu_sRTOMTgWNN5_v5X0cPo9lmzmwE5ZqKSV9PgX"
+[2026-08-10T07:51:11.083Z] 📄 Content-Type: application/json
+[2026-08-10T07:51:11.084Z] ✅ JSON PARSED SUCCESSFULLY
+[2026-08-10T07:51:11.084Z] 📊 PARSED DATA:
+{
+  "success": true,
+  "message": "Login successful.",
+  "data": {
+    "user": {
+      "id": 1,
+      "name": "mohammad",
+      "username": "mfelfelani72",
+      "email": "mfelfelani72@gmail.com",
+      "phone": "09150873107",
+      "email_verified_at": null,
+      "role": "user",
+      "is_active": true,
+      "avatar": null,
+      "last_login_at": null,
+      "last_login_ip": null,
+      "created_at": "2026-08-09T07:28:04.000000Z",
+      "updated_at": "2026-08-09T07:28:04.000000Z",
+      "deleted_at": null
+    },
+    "token": {
+      "access_token": "***",
+      "token_type": "Bearer"
+    }
+  }
+}
+[2026-08-10T07:51:11.085Z] 🔍 DATA STRUCTURE CHECK:
+[2026-08-10T07:51:11.085Z]   - success: true
+[2026-08-10T07:51:11.085Z]   - data: present
+[2026-08-10T07:51:11.086Z]   - data.token: present
+[2026-08-10T07:51:11.086Z]   - data.token.access_token: present
+[2026-08-10T07:51:11.087Z]   - data.user: present
+[2026-08-10T07:51:11.087Z] ✅✅✅ LOGIN SUCCESSFUL ✅✅✅
+[2026-08-10T07:51:11.088Z] 👤 User:
+{
+  "email": "mfelfelani72@gmail.com",
+  "id": 1
+}
+[2026-08-10T07:51:11.089Z] 🍪 SETTING COOKIES:
+[2026-08-10T07:51:11.090Z]   - accessToken: set
+[2026-08-10T07:51:11.091Z]   - tokenType: set
+[2026-08-10T07:51:11.092Z]   - user: set
+[2026-08-10T07:51:11.092Z]   - isLoggedIn: set
+[2026-08-10T07:51:11.093Z] ═══════════════════════════════════════════════════════
+[2026-08-10T07:51:11.093Z] ✅ LOGIN COMPLETED SUCCESSFULLY
+[2026-08-10T07:51:11.094Z] ═══════════════════════════════════════════════════════

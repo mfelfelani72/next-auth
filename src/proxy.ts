@@ -11,9 +11,9 @@ import type { NextRequest } from "next/server";
 
 // Functions
 
-import { detectDeviceFromUA } from "@/libraries/detectDeviceFromUA";
+import { detectDeviceFromUA } from "forma-li";
 
-// ⚠️ نکته مهم: نام تابع باید `middleware` باشد، نه `proxy`
+
 export async function proxy(request: NextRequest) {
   const url = request.nextUrl.clone();
   

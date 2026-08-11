@@ -7,5 +7,6 @@ export interface LoginMetadata {
 export interface LoginProps {
   loginRoute: string;
   metadata?: LoginMetadata;
+  className?: string;
   onGoogleLogin?: () => void;
 }

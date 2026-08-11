@@ -6,11 +6,11 @@
  * @Description:
  */
 import type { ReactNode } from "react";
-import { type Lang } from "@/configs/language";
+import { type Lang } from "../configs/language";
 
 // Interfaces
 
-import { Dictionary } from "@/interfaces/dictionary";
+import { Dictionary } from "../interfaces/dictionary";
 
 export interface LangLayoutProps {
   children: ReactNode;

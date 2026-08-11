@@ -1,42 +1,48 @@
-"use client";
-import type { Metadata } from "next";
-import Head from "next/head";
-
-// export const metadata: Metadata = {
-//   title: "Login",
-//   description: "Login page",
-// };
+/*
+ * @Author: Mohammad Felfelani
+ * @Email: mfelfelani72@gmail.com
+ * @Team:
+ * @Date: 2025-12-29 05:41:18
+ * @Description:
+ */
 
 // Components
 
-import Login from "@/components/Login";
-import UiLogin2 from "@/components/demo/UiLogin2";
-import UiLogin3 from "@/components/demo/UiLogin3";
-import UiLogin4 from "@/components/demo/UiLogin4";
-import UiLogin5 from "@/components/demo/UiLogin5";
+import Login from "@/components/demo/auth/common/login/LoginLanding";
+// Functions
 
-// Interface
+import { createMetadata } from "@/utilities/app/metadataHelper";
 
-import type { LoginProps } from "@/types";
+// Interfaces
 
-export default function Page({ loginRoute, onGoogleLogin }: LoginProps) {
+import { languages, type Lang } from "@/configs/language";
+
+// Create Metadata
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  return createMetadata(await params, "login");
+}
+
+async function Page({ params }: { params: Promise<{ lang: string }> }) {
+  const resolvedParams = await params;
+
+  const lang =
+    resolvedParams.lang in languages ? (resolvedParams.lang as Lang) : "en";
+
   return (
-    <>
-      <Head>
-        <title>Login Page</title>
-        <meta name="description" content="Login to your account" />
-      </Head>
-
-      <Login
-        loginRoute={"/api/auth/login"}
-        // onGoogleLogin={onGoogleLogin}
-        // UiComponent={UiLogin2}
-        // UiComponent={UiLogin3}
-        // UiComponent={UiLogin5}
-        // UiComponent={UiLogin4}
-        // UiComponent={UiLogin5}
-        // UiComponent={New2}
-      />
-    </>
+    <div
+      className="bg-cover bg-center bg-fixed"
+      style={{
+        backgroundImage: `url('/images/jpg/auth.jpeg')`,
+      }}
+    >
+     
+      <Login params={{ lang }} />
+    </div>
   );
 }
+
+export default Page;

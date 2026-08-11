@@ -9,15 +9,15 @@
 
 // Functions
 
-import { getDictionary } from "@/locale";
+import { getDictionary } from "../locale";
 
 // Interfaces
 
-import { type Lang } from "@/configs/language";
+import { type Lang } from "../configs/language";
 
 // Zustand
 
-import { useLangStore } from "@/stores/LangStore";
+import { useLangStore } from "../stores/LangStore";
 
 export function useTranslation() {
   const { lang } = useLangStore();

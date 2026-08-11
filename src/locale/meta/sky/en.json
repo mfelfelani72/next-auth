@@ -1,0 +1,31 @@
+{
+  "title": "sky",
+  "description": "sky delivers AI-powered crypto trading signals with real-time news, live prices, and smart market insights to help beginners trade confidently.",
+  "keywords": [
+    "sky",
+    "AI trading signals",
+    "crypto trading signals",
+    "real-time crypto news",
+    "live crypto prices",
+    "crypto trading for beginners",
+    "digital asset analysis",
+    "market analysis",
+    "price prediction",
+    "news sentiment analysis",
+    "cryptocurrency signals",
+    "crypto AI tools"
+  ],
+  "publisher": "sky",
+  "openGraph": {
+    "title": "sky – AI-Powered Crypto Trading Signals",
+    "description": "sky provides AI-driven trading signals, real-time crypto news, live prices, and smart market insights to help traders make confident decisions.",
+    "images": "/next-sky/images/png/opengraph.png"
+  },
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "sky – AI-Powered Crypto Trading Signals",
+    "description": "sky delivers AI-based crypto trading signals, real-time news, live prices, and smart market insights for confident trading.",
+    "images": "/next-sky/images/png/opengraph.png",
+    "site": ""
+  }
+}

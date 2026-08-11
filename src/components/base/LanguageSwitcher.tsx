@@ -17,7 +17,7 @@ import { LanguageIcon } from "forma-ui";
 
 // Zustand
 
-import { useLangStore } from "@/stores/LangStore";
+import { useLangStore } from "../../stores/LangStore";
 
 // Interfaces
 
@@ -26,7 +26,7 @@ import {
   type Lang,
   getNativeName,
   getFlag,
-} from "@/configs/language";
+} from "../../configs/language";
 
 export default function LanguageSwitcher() {
   // Hooks

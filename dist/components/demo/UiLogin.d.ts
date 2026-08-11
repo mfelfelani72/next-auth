@@ -6,5 +6,5 @@ interface ClientLoginProps {
     };
     message?: string | null;
 }
-export default function UiLogin({ onSubmit, errors, message, }: ClientLoginProps): import("react/jsx-runtime").JSX.Element;
+export default function UiLogin({ onSubmit, errors, message, }: ClientLoginProps): import("react").JSX.Element;
 export {};

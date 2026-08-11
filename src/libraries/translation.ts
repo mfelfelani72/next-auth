@@ -7,8 +7,8 @@
  */
 
 import React from "react";
-import { getDictionary } from "@/locale";
-import { type Lang } from "@/configs/app/language";
+import { getDictionary } from "../locale";
+import { type Lang } from "../configs/language";
 
 // Core translation function
 export function createTranslator(lang: Lang) {
