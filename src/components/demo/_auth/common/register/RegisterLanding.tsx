@@ -11,14 +11,14 @@ import dynamic from "next/dynamic";
 // Components
 
 const RegisterDesktop = dynamic(
-  () => import("@/components/demo/auth/desktop/Register")
+  () => import("@/components/demo/_auth/desktop/Register")
 );
 const RegisterMobile = dynamic(
-  () => import("@/components/demo/auth/mobile/Register")
+  () => import("@/components/demo/_auth/mobile/Register")
 );
 
 const RegisterIpad = dynamic(
-  () => import("@/components/demo/auth/ipad/Register")
+  () => import("@/components/demo/_auth/ipad/Register")
 );
 
 // Functions

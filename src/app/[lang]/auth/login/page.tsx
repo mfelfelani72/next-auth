@@ -1,48 +1,26 @@
-/*
- * @Author: Mohammad Felfelani
- * @Email: mfelfelani72@gmail.com
- * @Team:
- * @Date: 2025-12-29 05:41:18
- * @Description:
- */
-
-// Components
-
-import Login from "@/components/demo/auth/common/login/LoginLanding";
-// Functions
-
 import { createMetadata } from "@/utilities/app/metadataHelper";
-
-// Interfaces
-
 import { languages, type Lang } from "@/configs/language";
+import Login from "@/components/demo/auth/Login";
+import TwoColumnLayout from "@/components/demo/auth/layouts/TwoColumn";
 
-// Create Metadata
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ lang: string }>;
-}) {
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }) {
   return createMetadata(await params, "login");
 }
 
-async function Page({ params }: { params: Promise<{ lang: string }> }) {
+export default async function Page({ params }: { params: Promise<{ lang: string }> }) {
   const resolvedParams = await params;
-
-  const lang =
-    resolvedParams.lang in languages ? (resolvedParams.lang as Lang) : "en";
+  const lang = resolvedParams.lang in languages ? (resolvedParams.lang as Lang) : "en";
 
   return (
     <div
-      className="bg-cover bg-center bg-fixed"
-      style={{
-        backgroundImage: `url('/images/jpg/auth.jpeg')`,
-      }}
+      className="bg-cover bg-center bg-fixed min-h-screen"
+      style={{ backgroundImage: `url('/images/jpg/auth.jpeg')` }}
     >
-     
-      <Login params={{ lang }} />
+      <Login
+        loginRoute="/api/auth/login"
+        UiComponent={TwoColumnLayout}
+        className="w-full max-w-none px-0"
+      />
     </div>
   );
 }
-
-export default Page;

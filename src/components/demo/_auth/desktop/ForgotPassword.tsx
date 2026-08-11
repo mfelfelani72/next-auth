@@ -9,29 +9,29 @@
 
 // Components
 
-import RightSidebar from "@/components/demo/auth/common/RightSidebar";
-import LeftSidebar from "@/components/demo/auth/common/LeftSidebar";
-import LoginForm from "@/components/demo/auth/common/login/LoginForm";
-import LoginDetails from "@/components/demo/auth/common/login/LoginDetails";
+import RightSidebar from "@/components/demo/_auth/common/RightSidebar";
+import LeftSidebar from "@/components/demo/_auth/common/LeftSidebar";
+import ForgotPasswordForm from "@/components/demo/_auth/common/forgotPassword/ForgotPasswordForm";
+import ForgotPasswordDetails from "@/components/demo/_auth/common/forgotPassword/ForgotPasswordDetails";
 
 // Hooks
 
 import { useTranslation } from "@/hooks/useTranslation";
 
-export default function Login() {
+export default function ForgotPassword() {
   const { t } = useTranslation();
 
   return (
     <div className="flex flex-row h-screen w-full items-center justify-center">
       <div className="relative inline-flex flex-row z-120 max-w-[60dvw] h-[77dvh]">
         <LeftSidebar
-          title={t("login_title")}
-          description={t("login_description")}
+          title={t("forgot_password_title")}
+          description={t("forgot_password_description")}
         >
-          <LoginForm />
+          <ForgotPasswordForm />
         </LeftSidebar>
         <RightSidebar>
-          <LoginDetails />
+          <ForgotPasswordDetails />
         </RightSidebar>
       </div>
     </div>

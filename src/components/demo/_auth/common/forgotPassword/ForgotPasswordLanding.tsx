@@ -11,11 +11,11 @@ import dynamic from "next/dynamic";
 // Components
 
 const ForgotPasswordDesktop = dynamic(
-  () => import("@/components/demo/auth/desktop/ForgotPassword")
+  () => import("@/components/demo/_auth/desktop/ForgotPassword")
 );
-const ForgotPasswordMobile = dynamic(() => import("@/components/demo/auth/mobile/ForgotPassword"));
+const ForgotPasswordMobile = dynamic(() => import("@/components/demo/_auth/mobile/ForgotPassword"));
 
-const ForgotPasswordIpad = dynamic(() => import("@/components/demo/auth/ipad/ForgotPassword"));
+const ForgotPasswordIpad = dynamic(() => import("@/components/demo/_auth/ipad/ForgotPassword"));
 
 // Functions
 

@@ -9,26 +9,25 @@
 
 // Components
 
-import LeftSidebar from "@/components/demo/auth/common/LeftSidebar";
-import ForgotPasswordForm from "@/components/demo/auth/common/forgotPassword/ForgotPasswordForm";
+import LeftSidebar from "@/components/demo/_auth/common/LeftSidebar";
+import ForgotPasswordForm from "@/components/demo/_auth/common/forgotPassword/ForgotPasswordForm";
 
 // Hooks
 
 import { useTranslation } from "@/hooks/useTranslation";
 
-export default function ForgotPassword() {
+const ForgotPassword = () => {
   // Hooks
 
   const { t } = useTranslation();
-
   return (
     <>
       <div className="flex flex-row h-screen w-full items-center justify-center">
-        <div className="relative inline-flex flex-row z-120 max-w-[60dvw] h-[77dvh]">
+        <div className="h-full flex items-center justify-center px-4">
           <LeftSidebar
             title={t("forgot_password_title")}
             description={t("forgot_password_description")}
-            className="rounded-2xl w-lg"
+            className="w-full h-[calc(100vh-10rem)] rounded-2xl shadow-2xl"
           >
             <ForgotPasswordForm />
           </LeftSidebar>
@@ -36,4 +35,6 @@ export default function ForgotPassword() {
       </div>
     </>
   );
-}
+};
+
+export default ForgotPassword;

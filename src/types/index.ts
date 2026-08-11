@@ -4,16 +4,8 @@ export interface LoginComponentProps {
   message?: string | null;
 }
 
-export interface LoginMetadata {
-  title?: string;
-  description?: string;
-  logoUrl?: string;
-}
-
 export interface LoginProps {
   loginRoute: string;
-  metadata?: LoginMetadata;
   UiComponent?: React.ComponentType<LoginComponentProps>;
   className?: string;
-  onGoogleLogin?: () => void;
 }

@@ -4,15 +4,15 @@ import dynamic from "next/dynamic";
 import { detectComponentsResponsive } from "forma-li";
 
 const LoginDesktop = dynamic(
-  () => import("@/components/demo/auth/desktop/Login")
+  () => import("@/components/demo/_auth/desktop/Login")
 );
 
 const LoginMobile = dynamic(
-  () => import("@/components/demo/auth/mobile/Login")
+  () => import("@/components/demo/_auth/mobile/Login")
 );
 
 const LoginIpad = dynamic(
-  () => import("@/components/demo/auth/ipad/Login")
+  () => import("@/components/demo/_auth/ipad/Login")
 );
 
 import { type Lang } from "@/configs/language";

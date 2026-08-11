@@ -9,8 +9,8 @@
 
 // Components
 
-import LeftSidebar from "@/components/demo/auth/common/LeftSidebar";
-import RegisterForm from "@/components/demo/auth/common/register/RegisterForm";
+import LeftSidebar from "@/components/demo/_auth/common/LeftSidebar";
+import RegisterForm from "@/components/demo/_auth/common/register/RegisterForm";
 
 // Hooks
 

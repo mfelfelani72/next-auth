@@ -2,23 +2,21 @@
  * @Author: Mohammad Felfelani
  * @Email: mfelfelani72@gmail.com
  * @Date: 2025-12-29
- * @Description: Login Page - Desktop Only
+ * @Description: Register Page - Desktop Only
  */
 
 "use client";
 
 // Components
 
-import RightSidebar from "@/components/demo/auth/common/RightSidebar";
-import LeftSidebar from "@/components/demo/auth/common/LeftSidebar";
-import RegisterForm from "@/components/demo/auth/common/register/RegisterForm";
-import RegisterDetails from "@/components/demo/auth/common/register/RegisterDetails";
+import LeftSidebar from "@/components/demo/_auth/common/LeftSidebar";
+import RegisterForm from "@/components/demo/_auth/common/register/RegisterForm";
 
 // Hooks
 
 import { useTranslation } from "@/hooks/useTranslation";
 
-export default function Login() {
+export default function Register() {
   // Hooks
 
   const { t } = useTranslation();
@@ -30,12 +28,10 @@ export default function Login() {
           <LeftSidebar
             title={t("register_title")}
             description={t("register_description")}
+            className="rounded-2xl w-lg"
           >
             <RegisterForm />
           </LeftSidebar>
-          <RightSidebar>
-            <RegisterDetails />
-          </RightSidebar>
         </div>
       </div>
     </>

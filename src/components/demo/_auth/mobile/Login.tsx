@@ -9,26 +9,25 @@
 
 // Components
 
-import LeftSidebar from "@/components/demo/auth/common/LeftSidebar";
-import LoginForm from "@/components/demo/auth/common/login/LoginForm";
+import LeftSidebar from "@/components/demo/_auth/common/LeftSidebar";
+import LoginForm from "@/components/demo/_auth/common/login/LoginForm";
 
 // Hooks
 
 import { useTranslation } from "@/hooks/useTranslation";
 
-export default function Login() {
+const Login = () => {
   // Hooks
 
   const { t } = useTranslation();
-
   return (
     <>
       <div className="flex flex-row h-screen w-full items-center justify-center">
-        <div className="relative inline-flex flex-row z-120 max-w-[60dvw] h-[77dvh]">
+        <div className="h-full flex items-center justify-center px-4">
           <LeftSidebar
             title={t("login_title")}
             description={t("login_description")}
-            className="rounded-2xl w-lg"
+            className="w-full h-[calc(100vh-10rem)] rounded-2xl shadow-2xl"
           >
             <LoginForm />
           </LeftSidebar>
@@ -36,4 +35,6 @@ export default function Login() {
       </div>
     </>
   );
-}
+};
+
+export default Login;
