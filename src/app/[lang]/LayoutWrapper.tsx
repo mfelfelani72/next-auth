@@ -19,7 +19,7 @@ import { LangWrapperProps } from "@/interfaces/global";
 
 // Zustand
 
-import { useLangStore } from "@/stores/LangStore";
+import { useLangStore } from "forma-li";
 
 export default function LayoutWrapper({
   langFromUrl,

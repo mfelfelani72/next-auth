@@ -9,7 +9,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 
 export default async function Page({ params }: { params: Promise<{ lang: string }> }) {
   const resolvedParams = await params;
-  const lang = resolvedParams.lang in languages ? (resolvedParams.lang as Lang) : "en";
+  const lang = resolvedParams.lang in languages ? (resolvedParams.lang as Lang) : "fa";
 
   return (
     <div

@@ -12,7 +12,7 @@ import { useState, useRef, useEffect } from "react";
 // Components
 import { LanguageIcon } from "forma-ui";
 // Zustand
-import { useLangStore } from "../../stores/LangStore";
+import { useLangStore } from "forma-li";
 // Interfaces
 import { languages, getNativeName, getFlag, } from "../../configs/language";
 export default function LanguageSwitcher() {

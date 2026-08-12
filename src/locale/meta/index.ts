@@ -30,7 +30,7 @@ export async function getMeta(lang: string) {
     loadMetaFile(`register/${lang}.json`),
     loadMetaFile(`forgotPassword/${lang}.json`),
   ]);
-
+  
   return {
     meta,
     meta_home,

@@ -12,7 +12,7 @@ import { cache } from "react";
 // Configs
 
 import type { Lang } from "@/configs/language";
-import { getLocale, getSchemaLocale, languages } from "@/configs/language";
+import { languages } from "@/configs/language";
 import { getDictionary } from "@/locale";
 
 // Interfaces
@@ -156,7 +156,7 @@ function buildMetadataFromContent(
           alt: data.title,
         },
       ],
-      locale: getLocale(lang),
+      locale: languages[lang]?.locale || "en_US",
       publishedTime: data.datePublished,
       modifiedTime: data.dateModified,
       ...(data.author && { authors: [data.author] }),
@@ -211,14 +211,14 @@ export async function generatePageMetadata(
   customMeta?: Partial<PageMeta>,
 ): Promise<Metadata> {
   // Constants
-
   const dict = await getDictionary(lang);
 
   const baseMeta = dict.meta as BaseMeta;
 
   const pageMetaCandidate = pageKey
-    ? dict[`meta_${pageKey}` as keyof typeof dict]
-    : null;
+  ? dict[`meta_${pageKey}` as keyof typeof dict]
+  : null;
+
 
   const pageMeta = (pageMetaCandidate as PageMeta) || baseMeta;
 
@@ -227,6 +227,7 @@ export async function generatePageMetadata(
     : pageMeta;
 
   const pageTitle = generatePageTitle(finalMeta.title, baseMeta.title);
+
 
   const canonicalUrl =
     finalMeta.canonicalUrl || generateCanonicalUrl(lang, pageKey);
@@ -253,7 +254,7 @@ export async function generatePageMetadata(
           alt: pageTitle,
         },
       ],
-      locale: getLocale(lang),
+      locale: languages[lang]?.locale || "en_US",
     },
 
     twitter: {
@@ -286,7 +287,7 @@ export function generateWebsiteSchema(lang: Lang) {
     "@type": "WebSite",
     name: SITE_NAME,
     url: SITE_URL,
-    inLanguage: getSchemaLocale(lang),
+    inLanguage: languages[lang]?.schemaLocale || "en-US",
     potentialAction: {
       "@type": "SearchAction",
       target: `${SITE_URL}/search?q={search_term_string}`,
@@ -302,7 +303,7 @@ export function generateOrganizationSchema(lang: Lang) {
     name: SITE_NAME,
     url: SITE_URL,
     logo: `${SITE_URL}/images/logo/logo.png`,
-    inLanguage: getSchemaLocale(lang),
+    inLanguage: languages[lang]?.schemaLocale || "en-US",
     sameAs: ["https://twitter.com/sky", "https://linkedin.com/company/sky"],
   };
 }
@@ -341,7 +342,7 @@ export function generateArticleSchema(
         url: `${SITE_URL}/images/logo/logo.png`,
       },
     },
-    inLanguage: getSchemaLocale(lang),
+    inLanguage: languages[lang]?.schemaLocale || "en-US",
     ...(article.originalSourceUrl && {
       citation: {
         "@type": "CreativeWork",
@@ -433,6 +434,7 @@ export async function createMetadata(
 
   const lang = resolvedParams.lang ?? "en";
   const selected: Lang = lang in languages ? (lang as Lang) : "en";
+
 
   let slug = resolvedParams.slug;
   let address: string | undefined;

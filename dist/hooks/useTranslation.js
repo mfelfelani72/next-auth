@@ -9,7 +9,7 @@
 // Functions
 import { getDictionary } from "../locale";
 // Zustand
-import { useLangStore } from "../stores/LangStore";
+import { useLangStore } from "forma-li";
 export function useTranslation() {
     const { lang } = useLangStore();
     const translations = getDictionary(lang);

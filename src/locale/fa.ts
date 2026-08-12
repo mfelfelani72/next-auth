@@ -13,7 +13,7 @@ import auth_fa from "./auth/fa.json";
 const meta = await getMeta("fa");
 
 const fa = {
-  meta,
+  ...meta,
 
   ...auth_fa,
 };
