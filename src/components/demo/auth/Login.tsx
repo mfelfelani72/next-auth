@@ -5,8 +5,9 @@ import { cn } from "forma-li";
 import type { LoginProps, LoginComponentProps } from "@/types";
 
 export default function Login({
-  loginRoute,
   UiComponent,
+  theme ,
+  variant,
   className,
 }: LoginProps) {
   const [errors, setErrors] = useState<{
@@ -42,7 +43,7 @@ export default function Login({
     setLoading(true);
 
     try {
-      const res = await fetch(loginRoute, {
+      const res = await fetch("/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -70,6 +71,8 @@ export default function Login({
         onSubmit={handleSubmit}
         errors={errors}
         message={message}
+        theme={theme}
+        variant={variant}
       />
     </div>
   );

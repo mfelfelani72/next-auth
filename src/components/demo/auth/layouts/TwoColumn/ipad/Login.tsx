@@ -1,17 +1,56 @@
+// ipad/Login.tsx
 "use client";
 
+import { useMemo } from "react";
+import dynamic from "next/dynamic";
 import { useTranslation } from "@/hooks/useTranslation";
-import LeftSidebar from "../common/LeftSidebar";
-import RightSidebar from "../common/RightSidebar";
-import LoginForm from "../common/LoginForm";
-import LoginDetails from "../common/LoginDetails";
+
 import type { LoginComponentProps } from "@/types";
+import type { ComponentType, ReactNode } from "react";
+
+// تعریف تایپ برای کامپوننت‌های داینامیک
+interface LeftSidebarProps {
+  children: ReactNode;
+  title: string;
+  description: string;
+}
+
+interface RightSidebarProps {
+  children: ReactNode;
+}
+
+interface LoginFormProps extends LoginComponentProps {}
+
+interface LoginDetailsProps {}
+
+type DynamicComponent<T = {}> = ComponentType<T>;
 
 export default function LoginIpad(props: LoginComponentProps) {
   const { t } = useTranslation();
+   const theme = props?.theme;
+
+  const Components = useMemo(() => {
+    const createDynamicComponent = <P extends object>(name: string): DynamicComponent<P> => {
+      return dynamic(
+        () => import(`../common/theme/${theme}/${name}`).catch(() => 
+          import(`../common/theme/default/${name}`)
+        ),
+        { ssr: false }
+      ) as DynamicComponent<P>;
+    };
+
+    return {
+      LeftSidebar: createDynamicComponent<LeftSidebarProps>("LeftSidebar"),
+      RightSidebar: createDynamicComponent<RightSidebarProps>("RightSidebar"),
+      LoginForm: createDynamicComponent<LoginFormProps>("LoginForm"),
+      LoginDetails: createDynamicComponent<LoginDetailsProps>("LoginDetails"),
+    };
+  }, [theme]);
+
+  const { LeftSidebar, RightSidebar, LoginForm, LoginDetails } = Components;
 
   return (
-    <div className="flex items-center justify-center min-h-screen p-6 bg-gradient-to-br from-purple-900 via-purple-800 to-black">
+    <div className="flex items-center justify-center min-h-screen p-6 bg-linear-to-br from-purple-900 via-purple-800 to-black">
       <div className="flex flex-row w-full max-w-4xl h-[85vh] rounded-2xl overflow-hidden shadow-2xl">
         <div className="w-1/2 bg-white/10 backdrop-blur-md p-6 flex flex-col">
           <h1 className="text-xl font-bold text-white mb-1">{t("login_title")}</h1>
