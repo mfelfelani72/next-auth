@@ -6,7 +6,7 @@ import type { LoginProps, LoginComponentProps } from "@/types";
 
 export default function Login({
   UiComponent,
-  theme ,
+  theme,
   variant,
   className,
 }: LoginProps) {
@@ -66,7 +66,13 @@ export default function Login({
   const RenderUi = UiComponent || (() => <div>No UI component provided</div>);
 
   return (
-    <div className={cn("relative z-10 w-full max-w-md px-4", className)}>
+    <div
+      style={{ backgroundImage: `url('/images/jpg/${theme}_auth.jpeg')` }}
+      className={cn(
+        "z-10 w-full max-w-md px-4 max-h-screen bg-cover bg-center bg-fixed overflow-hidden",
+        className,
+      )}
+    >
       <RenderUi
         onSubmit={handleSubmit}
         errors={errors}

@@ -34,52 +34,52 @@ export default function LoginForm({ onSubmit, errors, message }: LoginComponentP
           <InputEmail
             id="email"
             name="email"
-            label={<div className="xs:text-[16px] text-Neutral-100">{t("email")}</div>}
+            label={<div className="xs:text-[16px] text-amber-800 font-medium">{t("email")}</div>}
             validate={t("invalid_email")}
             placeholder={t("enter_your_email")}
-            className="flex justify-between h-10 rounded-lg xl:placeholder:text-sm xs:placeholder:text-xs shadow-inner bg-white/20 border-Neutral-200 text-white placeholder:text-Neutral-100"
+            className="flex justify-between h-10 rounded-lg xl:placeholder:text-sm xs:placeholder:text-xs shadow-inner bg-amber-50/60 border-amber-200/60 text-amber-900 placeholder:text-amber-400/60 focus:border-amber-400 focus:ring-2 focus:ring-amber-200/50 transition-all"
           />
-          {errors?.email && <p className="mt-1 text-sm text-red-300">{errors.email}</p>}
+          {errors?.email && <p className="mt-1 text-sm text-red-500">{errors.email}</p>}
 
           <InputPassword
             id="password"
             name="password"
-            label={<div className="mt-6 xs:text-[16px] text-Neutral-100">{t("password")}</div>}
+            label={<div className="mt-6 xs:text-[16px] text-amber-800 font-medium">{t("password")}</div>}
             validate={t("invalid_password")}
             placeholder={t("enter_your_password")}
-            className="flex justify-between h-10 rounded-lg xl:placeholder:text-sm xs:placeholder:text-xs shadow-inner bg-white/20 border-Neutral-200 text-white placeholder:text-Neutral-100"
+            className="flex justify-between h-10 rounded-lg xl:placeholder:text-sm xs:placeholder:text-xs shadow-inner bg-amber-50/60 border-amber-200/60 text-amber-900 placeholder:text-amber-400/60 focus:border-amber-400 focus:ring-2 focus:ring-amber-200/50 transition-all"
           />
-          {errors?.password && <p className="mt-1 text-sm text-red-300">{errors.password}</p>}
+          {errors?.password && <p className="mt-1 text-sm text-red-500">{errors.password}</p>}
         </div>
 
         <div className="flex justify-end mt-2">
-          <LocalizedLink href="/auth/forgot-password" className="text-xs text-Neutral-100 hover:text-primary-400 transition-colors">
+          <LocalizedLink href="/auth/forgot-password" className="text-xs text-amber-700/70 hover:text-amber-900 transition-colors font-medium">
             {t("forgot_password")}
           </LocalizedLink>
         </div>
 
         {message && (
-          <div className="mt-4 text-center text-sm text-red-300">{message}</div>
+          <div className="mt-4 text-center text-sm text-red-500">{message}</div>
         )}
       </div>
 
       <div>
         <div className="flex items-center gap-4 mt-6">
-          <div className="flex-1 h-px bg-Neutral-100" />
-          <span className="text-xs text-Neutral-100">{t("or_continue_with")}</span>
-          <div className="flex-1 h-px bg-Neutral-100" />
+          <div className="flex-1 h-px bg-amber-200/40" />
+          <span className="text-xs text-amber-700/60 font-medium">{t("or_continue_with")}</span>
+          <div className="flex-1 h-px bg-amber-200/40" />
         </div>
 
         <div className="flex gap-3 mt-2">
-          <button type="button" className="flex-1 flex items-center justify-center gap-2 py-2 rounded-lg border border-Neutral-200 bg-white/20 hover:bg-white/30 transition-all duration-300 text-Neutral-100 cursor-pointer">
+          <button type="button" className="flex-1 flex items-center justify-center gap-2 py-2 rounded-lg border border-amber-200/60 bg-amber-50/60 hover:bg-amber-100/60 hover:border-amber-300 transition-all duration-300 text-amber-800 cursor-pointer shadow-sm hover:shadow-md">
             <GoogleIcon />
-            <span className="text-sm">{t("google")}</span>
+            <span className="text-sm font-medium">{t("google")}</span>
           </button>
         </div>
 
-        <p className="text-center mt-2 text-sm text-Neutral-100">
+        <p className="text-center mt-2 text-sm text-amber-800/70">
           {t("dont_have_account")}{" "}
-          <LocalizedLink href="/auth/register" className="text-primary-400 hover:text-primary-300 font-medium transition-colors">
+          <LocalizedLink href="/auth/register" className="text-amber-600 hover:text-amber-800 font-bold transition-colors">
             {t("create_account")}
           </LocalizedLink>
         </p>
@@ -87,7 +87,7 @@ export default function LoginForm({ onSubmit, errors, message }: LoginComponentP
         <button
           type="submit"
           disabled={isLoading}
-          className="w-full mt-2 py-3 rounded-lg bg-linear-to-r from-primary-400 to-primary-500 text-white font-semibold text-sm hover:shadow-lg hover:shadow-primary-400/30 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full mt-2 py-3 rounded-lg bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold text-sm hover:shadow-lg hover:shadow-amber-500/30 hover:scale-[1.02] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
         >
           {isLoading ? (
             <span className="flex items-center justify-center gap-2">
