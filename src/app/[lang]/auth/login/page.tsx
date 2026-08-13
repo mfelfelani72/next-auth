@@ -1,4 +1,4 @@
-import { createMetadata } from "@/utilities/app/metadataHelper";
+import { createMetadata } from "forma-li";
 import { languages, type Lang } from "@/configs/language";
 import Login from "@/components/demo/auth/Login";
 import TwoColumnLayout from "@/components/demo/auth/layouts/TwoColumn";

@@ -7,29 +7,19 @@
  */
 
 import { NextRequest, NextResponse } from "next/server";
-import { cns } from "forma-li";
 
 export function loginHandler(apiUrl: string) {
   return async function POST(req: NextRequest) {
     try {
       const body = await req.json();
 
-      const data = await cns<any>({
-        method: "post",
-        endPoint: apiUrl,
-        body: body,
-        route: "/login",
+      const response = await fetch(`${apiUrl}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
       });
 
-      if (!data) {
-        return NextResponse.json(
-          {
-            message: "No response from server",
-            success: false,
-          },
-          { status: 500 }
-        );
-      }
+      const data = await response.json();
 
       if (data.success && data.data?.token?.access_token) {
         const res = NextResponse.json({
@@ -45,6 +35,7 @@ export function loginHandler(apiUrl: string) {
           maxAge: 60 * 60 * 24 * 7,
         };
 
+        // accessToken
         res.cookies.set({
           name: "accessToken",
           value: data.data.token.access_token,
@@ -52,6 +43,7 @@ export function loginHandler(apiUrl: string) {
           httpOnly: true,
         });
 
+        // tokenType
         res.cookies.set({
           name: "tokenType",
           value: data.data.token.token_type || "Bearer",
@@ -59,6 +51,7 @@ export function loginHandler(apiUrl: string) {
           httpOnly: true,
         });
 
+        // user
         res.cookies.set({
           name: "user",
           value: JSON.stringify(data.data.user),
@@ -66,6 +59,7 @@ export function loginHandler(apiUrl: string) {
           httpOnly: false,
         });
 
+        // isLoggedIn
         res.cookies.set({
           name: "isLoggedIn",
           value: "true",
@@ -81,7 +75,7 @@ export function loginHandler(apiUrl: string) {
           message: data.message || "Login failed",
           success: false,
         },
-        { status: 401 }
+        { status: response.status || 401 },
       );
     } catch (err: any) {
       console.error("Login error:", err);
@@ -90,7 +84,7 @@ export function loginHandler(apiUrl: string) {
           message: err.message || "Internal server error",
           success: false,
         },
-        { status: 500 }
+        { status: 500 },
       );
     }
   };

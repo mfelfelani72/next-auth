@@ -6,8 +6,7 @@
  * @Description:
  */
 
-import type { Metadata } from "next";
-
+import { setupMetadata } from "forma-li";
 // Containers
 
 // import UserCheck from "@/containers/user/UserCheck";
@@ -24,6 +23,8 @@ import { getDictionary } from "@/locale";
 
 import { LangLayoutProps } from "@/interfaces/global";
 import { languages, type Lang } from "@/configs/language";
+
+setupMetadata({}, getDictionary as any);
 
 // Functions
 

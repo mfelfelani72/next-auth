@@ -21,8 +21,8 @@ importers:
         specifier: ^2.0.1
         version: 2.0.1
       forma-li:
-        specifier: 1.0.12
-        version: 1.0.12(@types/react@19.2.18)(react@19.2.8)(use-sync-external-store@1.6.0(react@19.2.8))
+        specifier: 1.0.17
+        version: 1.0.17(@types/react@19.2.18)(debug@4.4.3(supports-color@7.2.0))(next@16.3.0(@babel/core@7.29.7(supports-color@7.2.0))(@opentelemetry/api@1.9.1)(@types/node@26.1.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(supports-color@7.2.0)(swr@2.5.0(react@19.2.8))(use-sync-external-store@1.6.0(react@19.2.8))
       forma-ui:
         specifier: ^0.0.27
         version: 0.0.27(@babel/core@7.29.7(supports-color@7.2.0))(@opentelemetry/api@1.9.1)(@types/react@19.2.18)(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0)(use-sync-external-store@1.6.0(react@19.2.8))
@@ -1772,8 +1772,22 @@ packages:
     resolution: {integrity: sha512-vKatAh4SlVfgbv+YtmhiRjhEMJsYpsG1Y2rMQtR+SVSbytsSD1YGzDIcrAJmdFec88u/+VoGmxnl+80gL1tRCQ==}
     engines: {node: '>= 6'}
 
-  forma-li@1.0.12:
-    resolution: {integrity: sha512-B5KWcXj2TqLv0iegwpqtjc1WnO5oFkrURqY/kosY3VBb2UW5tfZHPqLc/G4i6QxBT1RKQFZ90IjnWPhyIrIwXw==}
+  forma-li@1.0.17:
+    resolution: {integrity: sha512-XFK5ok3U4ctl7yprOizFK90VIsbqfn8ydSzq/mGQ9zK9UZVgQzkp0NK/oHwlj/2d1gjtoi3qGp3PrpNOMpyf8w==}
+    peerDependencies:
+      next: '>=13.0.0'
+      react: '>=18.0.0'
+      react-dom: '>=18.0.0'
+      swr: '>=2.0.0'
+    peerDependenciesMeta:
+      next:
+        optional: true
+      react:
+        optional: true
+      react-dom:
+        optional: true
+      swr:
+        optional: true
 
   forma-ui@0.0.27:
     resolution: {integrity: sha512-5QXw48AqKSizDg/hPp+PTO4CUTyPoHRjKS+46dFBHQDpoiQn0Hrzeajz8XH0RKfcYSAXgjkJjStVE6Vv6hj6wQ==}
@@ -4591,15 +4605,22 @@ snapshots:
       hasown: 2.0.4
       mime-types: 2.1.35
 
-  forma-li@1.0.12(@types/react@19.2.18)(react@19.2.8)(use-sync-external-store@1.6.0(react@19.2.8)):
+  forma-li@1.0.17(@types/react@19.2.18)(debug@4.4.3(supports-color@7.2.0))(next@16.3.0(@babel/core@7.29.7(supports-color@7.2.0))(@opentelemetry/api@1.9.1)(@types/node@26.1.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(supports-color@7.2.0)(swr@2.5.0(react@19.2.8))(use-sync-external-store@1.6.0(react@19.2.8)):
     dependencies:
+      axios: 1.19.0(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0)
       clsx: 2.1.1
       tailwind-merge: 3.6.0
       zustand: 5.0.14(@types/react@19.2.18)(react@19.2.8)(use-sync-external-store@1.6.0(react@19.2.8))
+    optionalDependencies:
+      next: 16.3.0(@babel/core@7.29.7(supports-color@7.2.0))(@opentelemetry/api@1.9.1)(@types/node@26.1.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      react: 19.2.8
+      react-dom: 19.2.8(react@19.2.8)
+      swr: 2.5.0(react@19.2.8)
     transitivePeerDependencies:
       - '@types/react'
+      - debug
       - immer
-      - react
+      - supports-color
       - use-sync-external-store
 
   forma-ui@0.0.27(@babel/core@7.29.7(supports-color@7.2.0))(@opentelemetry/api@1.9.1)(@types/react@19.2.18)(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0)(use-sync-external-store@1.6.0(react@19.2.8)):
@@ -5706,6 +5727,13 @@ snapshots:
       dequal: 2.0.3
       react: 19.1.0
       use-sync-external-store: 1.6.0(react@19.1.0)
+
+  swr@2.5.0(react@19.2.8):
+    dependencies:
+      dequal: 2.0.3
+      react: 19.2.8
+      use-sync-external-store: 1.6.0(react@19.2.8)
+    optional: true
 
   tailwind-merge@3.6.0: {}
 
