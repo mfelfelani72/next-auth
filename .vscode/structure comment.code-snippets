@@ -9,6 +9,11 @@
     "body": ["// Containers"],
     "description": "Insert Containers"
   },
+  "Configures": {
+    "prefix": "conf",
+    "body": ["// Configures"],
+    "description": "Insert Configures"
+  },
   "Functions": {
     "prefix": "func",
     "body": ["// Functions"],

@@ -32,11 +32,6 @@ interface DeviceState {
   setDevice: (value: string) => void;
 }
 
-interface AutoRefreshState {
-  autoRefresh: boolean | string;
-  setAutoRefresh: (value: boolean | string) => void;
-}
-
 interface HeaderState {
   headerLeftButtonFunction: (() => void) | null;
   setHeaderLeftButtonFunction: (newFunction: (() => void) | null) => void;
@@ -54,7 +49,6 @@ interface HeaderState {
 type AppState = ThemeState &
   LoadingState &
   DeviceState &
-  AutoRefreshState &
   HeaderState;
 
 // Storage helper
@@ -156,8 +150,7 @@ export const useAppStore = create<AppState>()(
 
         return storedValue;
       })(),
-      setAutoRefresh: (value) => set({ autoRefresh: value }),
-
+     
       // Header
       headerLeftButtonFunction: null,
       setHeaderLeftButtonFunction: (newFunction) =>
@@ -183,7 +176,6 @@ export const useAppStore = create<AppState>()(
         isInitialized: state.isInitialized,
         loading: state.loading,
         device: state.device,
-        autoRefresh: state.autoRefresh,
         headerLeftButtonFunction: state.headerLeftButtonFunction,
         headerLeftButtonChildren: state.headerLeftButtonChildren,
         headerRightButtonFunction: state.headerRightButtonFunction,

@@ -1,20 +1,19 @@
 /*
- * @Author: Mohammad mfelfelani72@gmail.com
- * @Date: 2026-02-13 19:36:36
- * @LastEditors: Mohammad mfelfelani72@gmail.com
- * @LastEditTime: 2026-04-22 16:12:18
- * @FilePath: /next-aimoonhub-dev/src/app/[lang]/LangWrapper.tsx
+ * @Author: Mohammad Felfelani
+ * @Email: mfelfelani72@gmail.com
+ * @Team:
+ * @Date: 2025-10-04 11:48:20
  * @Description:
  */
+
 "use client";
 
 import { useEffect, useState } from "react";
 
-// Components
 
 // Interfaces
 
-import { LangWrapperProps } from "@/interfaces/global";
+import { LangWrapperProps } from "forma-li";
 
 
 // Zustand

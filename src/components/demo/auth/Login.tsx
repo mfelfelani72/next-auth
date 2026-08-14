@@ -1,13 +1,20 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useMemo, ComponentType, Suspense, lazy } from "react";
 import { cn } from "forma-li";
 import type { LoginProps, LoginComponentProps } from "@/types";
 
+const LazyTwoColumn = lazy(
+  () => import("@/components/demo/auth/layouts/TwoColumn"),
+);
+
+const LAYOUT_MAP: Record<string, ComponentType<LoginComponentProps>> = {
+  TwoColumn: LazyTwoColumn,
+};
+
 export default function Login({
-  UiComponent,
+  layout,
   theme,
-  variant,
   className,
 }: LoginProps) {
   const [errors, setErrors] = useState<{
@@ -63,13 +70,17 @@ export default function Login({
     }
   };
 
-  const RenderUi = UiComponent || (() => <div>No UI component provided</div>);
+  const RenderUi = useMemo(() => {
+    return LAYOUT_MAP[layout || ""] || LAYOUT_MAP.TwoColumn;
+  }, [layout]);
 
   return (
     <div
-      style={{ backgroundImage: `url('/images/jpg/${theme}_auth.jpeg')` }}
+      style={{
+        backgroundImage: `url('/images/jpg/${theme || "default"}_auth.jpeg')`,
+      }}
       className={cn(
-        "z-10 w-full max-w-md px-4 max-h-screen bg-cover bg-center bg-fixed overflow-hidden",
+        "zz-10 w-full max-w-md px-4 max-h-screen bg-cover bg-center bg-fixed overflow-hidden",
         className,
       )}
     >
@@ -78,7 +89,6 @@ export default function Login({
         errors={errors}
         message={message}
         theme={theme}
-        variant={variant}
       />
     </div>
   );

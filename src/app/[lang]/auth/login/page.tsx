@@ -1,7 +1,22 @@
-import { createMetadata } from "forma-li";
-import { languages, type Lang } from "@/configs/language";
+/*
+ * @Author: Mohammad Felfelani
+ * @Email: mfelfelani72@gmail.com
+ * @Team:
+ * @Date: 2025-10-04 11:48:20
+ * @Description:
+ */
+
+// Components
+
 import Login from "@/components/demo/auth/Login";
-import TwoColumnLayout from "@/components/demo/auth/layouts/TwoColumn";
+
+// Configures
+
+import { languages, type Lang } from "@/configs/language";
+
+// Functions
+
+import { createMetadata } from "forma-li";
 
 export async function generateMetadata({
   params,
@@ -22,9 +37,8 @@ export default async function Page({
 
   return (
     <Login
-      UiComponent={TwoColumnLayout}
-      theme="minimal"
-      variant="login"
+      layout="TwoColumn"
+      theme="default"
       className="w-full max-w-none px-0"
     />
   );

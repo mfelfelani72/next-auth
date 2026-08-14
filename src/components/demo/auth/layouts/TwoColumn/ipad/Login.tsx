@@ -50,7 +50,7 @@ export default function LoginIpad(props: LoginComponentProps) {
   const { LeftSidebar, RightSidebar, LoginForm, LoginDetails } = Components;
 
   return (
-    <div className="flex items-center justify-center min-h-screen p-6 bg-linear-to-br from-purple-900 via-purple-800 to-black">
+    <div className="flex items-center justify-center min-h-screen p-6 ">
       <div className="flex flex-row w-full max-w-4xl h-[85vh] rounded-2xl overflow-hidden shadow-2xl">
         <div className="w-1/2 bg-white/10 backdrop-blur-md p-6 flex flex-col">
           <h1 className="text-xl font-bold text-white mb-1">{t("login_title")}</h1>

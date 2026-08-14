@@ -16,8 +16,7 @@ export interface LoginMetadata {
 export interface LoginProps {
   metadata?: LoginMetadata;
   theme?: string;
-  variant: string;
-  UiComponent?: React.ComponentType<LoginComponentProps>;
+  layout?: string;
   className?: string;
   onGoogleLogin?: () => void;
 }

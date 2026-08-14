@@ -6,7 +6,6 @@
  * @Description:
  */
 
-import { setupMetadata } from "forma-li";
 // Containers
 
 // import UserCheck from "@/containers/user/UserCheck";
@@ -18,6 +17,7 @@ import LayoutWrapper from "@/app/[lang]/LayoutWrapper";
 // Functions
 
 import { getDictionary } from "@/locale";
+import { setupMetadata } from "forma-li";
 
 // Interfaces
 
