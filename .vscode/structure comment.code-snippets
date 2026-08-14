@@ -39,6 +39,12 @@
     "body": ["// Interfaces"],
     "description": "Insert Interfaces"
   },
+
+  "Types": {
+    "prefix": "typ",
+    "body": ["// Types"],
+    "description": "Insert Types"
+  },
   "Zustand": {
     "prefix": "zu",
     "body": ["// Zustand"],

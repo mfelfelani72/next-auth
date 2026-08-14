@@ -1,28 +1,45 @@
+/*
+ * @Author: Mohammad Felfelani
+ * @Email: mfelfelani72@gmail.com
+ * @Team:
+ * @Date: 2025-10-04 11:48:20
+ * @Description:
+ */
+
 "use client";
 
-import React, { useState, useMemo, ComponentType, Suspense, lazy } from "react";
-import { cn } from "forma-li";
-import type { LoginProps, LoginComponentProps } from "@/types";
+import React, { useState, useMemo, ComponentType, lazy } from "react";
+
+// Components
 
 const LazyTwoColumn = lazy(
-  () => import("@/components/demo/auth/layouts/TwoColumn"),
+  () => import("@/components/demo/auth/layouts/twoColumn"),
 );
 
+// Constants
+
 const LAYOUT_MAP: Record<string, ComponentType<LoginComponentProps>> = {
-  TwoColumn: LazyTwoColumn,
+  twoColumn: LazyTwoColumn,
 };
 
-export default function Login({
-  layout,
-  theme,
-  className,
-}: LoginProps) {
+// Functions
+
+import { cn } from "forma-li";
+
+// Types
+
+import type { LoginProps, LoginComponentProps } from "@/types";
+
+export default function Login({ layout, theme, className }: LoginProps) {
+  // States
+
   const [errors, setErrors] = useState<{
     email?: string;
     password?: string;
   }>({});
   const [message, setMessage] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
+
+  // Functions
 
   const handleSubmit = async (formData: FormData) => {
     setMessage(null);
@@ -30,7 +47,6 @@ export default function Login({
 
     const email = (formData.get("email") as string) || "";
     const password = (formData.get("password") as string) || "";
-
     const newErrors: typeof errors = {};
 
     if (!email.trim()) newErrors.email = "Email is required";
@@ -46,8 +62,6 @@ export default function Login({
       setMessage("Please fix the errors below.");
       return;
     }
-
-    setLoading(true);
 
     try {
       const res = await fetch("/api/auth/login", {
@@ -65,13 +79,11 @@ export default function Login({
       setMessage(data?.message || "Login successful");
     } catch (err: any) {
       setMessage(err?.message || "Network error");
-    } finally {
-      setLoading(false);
-    }
+    } 
   };
 
   const RenderUi = useMemo(() => {
-    return LAYOUT_MAP[layout || ""] || LAYOUT_MAP.TwoColumn;
+    return LAYOUT_MAP[layout || ""] || LAYOUT_MAP.twoColumn;
   }, [layout]);
 
   return (

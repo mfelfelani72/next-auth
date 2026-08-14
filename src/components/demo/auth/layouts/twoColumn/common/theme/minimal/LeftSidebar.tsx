@@ -1,8 +1,24 @@
+/*
+ * @Author: Mohammad Felfelani
+ * @Email: mfelfelani72@gmail.com
+ * @Team:
+ * @Date: 2025-10-04 11:48:20
+ * @Description:
+ */
+
 "use client";
 
 import { useRouter } from "next/navigation";
+
+// Components
+
 import { ArrowLeft } from "lucide-react";
+
+// Functions
+
 import { cn } from "forma-li";
+
+// Interfaces
 
 interface LeftSidebarProps {
   title: string;
@@ -11,14 +27,21 @@ interface LeftSidebarProps {
   children?: React.ReactNode;
 }
 
-export default function LeftSidebar({ title, description, className, children }: LeftSidebarProps) {
+export default function LeftSidebar({
+  title,
+  description,
+  className,
+  children,
+}: LeftSidebarProps) {
+  // Hooks
+
   const router = useRouter();
 
   return (
     <div
       className={cn(
         "flex flex-col w-full px-6 py-5 relative overflow-hidden",
-        "bg-gradient-to-br from-amber-50/95 via-orange-50/90 to-amber-100/95",
+        "bg-linear-to-br from-amber-50/95 via-orange-50/90 to-amber-100/95",
         "border border-amber-200/50",
         "shadow-2xl shadow-amber-900/20",
         "ltr:rounded-l-2xl rtl:rounded-r-2xl",

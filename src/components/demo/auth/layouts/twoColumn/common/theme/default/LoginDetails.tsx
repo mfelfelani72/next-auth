@@ -1,10 +1,27 @@
+/*
+ * @Author: Mohammad Felfelani
+ * @Email: mfelfelani72@gmail.com
+ * @Team:
+ * @Date: 2025-10-04 11:48:20
+ * @Description:
+ */
+
 "use client";
 
+// Components
+
 import { Shield, Bolt, Eye } from "lucide-react";
+
+// Hooks
+
 import { useTranslation } from "@/hooks/useTranslation";
 
 export default function LoginDetails() {
+  // Hooks
+
   const { t } = useTranslation();
+
+  // Constants
 
   const features = [
     { icon: Shield, label: t("encrypted"), color: "text-emerald-600" },

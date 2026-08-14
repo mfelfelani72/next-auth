@@ -1,18 +1,40 @@
+/*
+ * @Author: Mohammad Felfelani
+ * @Email: mfelfelani72@gmail.com
+ * @Team:
+ * @Date: 2025-10-04 11:48:20
+ * @Description:
+ */
+
 "use client";
 
-import { useTranslation } from "@/hooks/useTranslation";
+// Components
+
 import Image from "@/components/base/Image";
+
+// Functions
+
 import { cn } from "forma-li";
+
+// Interfaces
 
 interface BrandCardProps {
   className?: string;
 }
 
+// Hooks
+
+import { useTranslation } from "@/hooks/useTranslation";
+
 export default function BrandCard({ className }: BrandCardProps) {
+  // Hooks
+
   const { t } = useTranslation();
 
   return (
-    <div className={cn("flex flex-col items-center gap-4 text-center", className)}>
+    <div
+      className={cn("flex flex-col items-center gap-4 text-center", className)}
+    >
       <div className="h-20 w-20 xl:h-24 xl:w-24 shrink-0">
         <Image
           src="/images/png/logo.png"

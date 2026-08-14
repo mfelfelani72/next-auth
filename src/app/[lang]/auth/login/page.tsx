@@ -37,8 +37,8 @@ export default async function Page({
 
   return (
     <Login
-      layout="TwoColumn"
-      theme="default"
+      layout="twoColumn"
+      theme="minimal"
       className="w-full max-w-none px-0"
     />
   );
