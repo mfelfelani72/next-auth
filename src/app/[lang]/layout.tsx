@@ -21,7 +21,7 @@ import { setupMetadata } from "forma-li";
 
 // Interfaces
 
-import { LangLayoutProps } from "@/interfaces/global";
+import { LangLayoutProps } from "forma-li";
 import { languages, type Lang } from "@/configs/language";
 
 setupMetadata({}, getDictionary as any);

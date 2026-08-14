@@ -8,7 +8,7 @@
 
 // Components
 
-import twoColumn from "./twoColumn";
+import twoColumn from "./twoColumn/LoginLanding";
 
 export const LAYOUTS = {
   twoColumn,

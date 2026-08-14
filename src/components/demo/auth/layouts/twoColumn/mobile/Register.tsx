@@ -14,43 +14,43 @@ import type { ComponentType } from "react";
 
 // Types
 
-import type { LoginComponentProps } from "@/types";
+import type { RegisterComponentProps } from "@/types";
 type DynamicComponent<T = {}> = ComponentType<T>;
 
 // Interfaces
 
-interface LoginFormProps extends LoginComponentProps {}
+interface RegisterFormProps extends RegisterComponentProps {}
 
 // Hooks
 
 import { useTranslation } from "@/hooks/useTranslation";
-export default function LoginMobile(props: LoginComponentProps) {
+export default function RegisterMobile(props: RegisterComponentProps) {
   // Hooks
 
   const { t } = useTranslation();
 
   // Functions
 
-  const LoginForm = useMemo(() => {
+  const RegisterForm = useMemo(() => {
     return dynamic(
       () =>
-        import(`../common/theme/${props?.theme}/LoginForm`).catch(
-          () => import(`../common/theme/default/login/LoginForm`),
+        import(`../common/theme/${props?.theme}/RegisterForm`).catch(
+          () => import(`../common/theme/default/register/RegisterForm`),
         ),
       { ssr: false },
-    ) as DynamicComponent<LoginFormProps>;
+    ) as DynamicComponent<RegisterFormProps>;
   }, [props?.theme]);
 
   return (
     <div className="flex items-center justify-center min-h-screen p-4 bg-linear-to-br">
       <div className="w-full max-w-sm bg-white/20 backdrop-blur-md rounded-2xl p-6 border border-white/30">
         <h1 className="text-2xl font-bold text-center text-white mb-2">
-          {t("login_title")}
+          {t("register_title")}
         </h1>
         <p className="text-center text-gray-200 mb-6 text-sm">
-          {t("login_description")}
+          {t("register_description")}
         </p>
-        <LoginForm {...props} />
+        <RegisterForm {...props} />
       </div>
     </div>
   );

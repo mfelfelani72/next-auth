@@ -13,7 +13,7 @@ import React, { useState, useMemo, ComponentType, lazy } from "react";
 // Components
 
 const LazyTwoColumn = lazy(
-  () => import("@/components/demo/auth/layouts/twoColumn"),
+  () => import("@/components/demo/auth/layouts/twoColumn/LoginLanding"),
 );
 
 // Constants

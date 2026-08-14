@@ -10,6 +10,9 @@
 
 import { useEffect, useState } from "react";
 
+// Components
+
+import DetectDevice from "./DetectDevice";
 
 // Interfaces
 
@@ -50,6 +53,7 @@ export default function LayoutWrapper({
 
   return (
     <div lang={lang} dir={dir} className="">
+      <DetectDevice />
       {children}
     </div>
   );

@@ -33,12 +33,12 @@ export default async function Page({
 }) {
   const resolvedParams = await params;
   const lang =
-    resolvedParams.lang in languages ? (resolvedParams.lang as Lang) : "fa";
+    resolvedParams.lang in languages ? (resolvedParams.lang as Lang) : "en";
 
   return (
     <Login
       layout="twoColumn"
-      theme="minimal"
+      theme="default"
       className="w-full max-w-none px-0"
     />
   );

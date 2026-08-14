@@ -14,7 +14,7 @@ import dynamic from "next/dynamic";
 
 // Types
 
-import type { LoginComponentProps } from "@/types";
+import type { RegisterComponentProps } from "@/types";
 
 // Interfaces
 
@@ -28,9 +28,9 @@ interface RightSidebarProps {
   children: ReactNode;
 }
 
-interface LoginFormProps extends LoginComponentProps {}
+interface RegisterFormProps extends RegisterComponentProps {}
 
-interface LoginDetailsProps {}
+interface RegisterDetailsProps {}
 
 type DynamicComponent<T = {}> = ComponentType<T>;
 
@@ -38,7 +38,7 @@ type DynamicComponent<T = {}> = ComponentType<T>;
 
 import { useTranslation } from "@/hooks/useTranslation";
 
-export default function LoginIpad(props: LoginComponentProps) {
+export default function RegisterIpad(props: RegisterComponentProps) {
   // Hooks
   const { t } = useTranslation();
 
@@ -60,22 +60,22 @@ export default function LoginIpad(props: LoginComponentProps) {
     return {
       LeftSidebar: createDynamicComponent<LeftSidebarProps>("LeftSidebar"),
       RightSidebar: createDynamicComponent<RightSidebarProps>("RightSidebar"),
-      LoginForm: createDynamicComponent<LoginFormProps>("login/LoginForm"),
-      LoginDetails: createDynamicComponent<LoginDetailsProps>("login/LoginDetails"),
+      RegisterForm: createDynamicComponent<RegisterFormProps>("register/RegisterForm"),
+      RegisterDetails: createDynamicComponent<RegisterDetailsProps>("register/RegisterDetails"),
     };
   }, [props?.theme]);
 
-  const { LoginForm, LoginDetails } = Components;
+  const { RegisterForm, RegisterDetails } = Components;
 
   return (
     <div className="flex items-center justify-center min-h-screen p-6 ">
       <div className="flex flex-row w-full max-w-4xl h-[85vh] rounded-2xl overflow-hidden shadow-2xl">
         <div className="w-1/2 bg-white/10 backdrop-blur-md p-6 flex flex-col">
           <h1 className="text-xl font-bold text-white mb-1">
-            {t("login_title")}
+            {t("register_title")}
           </h1>
           <p className="text-sm text-gray-200 mb-4">{t("login_description")}</p>
-          <LoginForm {...props} />
+          <RegisterForm {...props} />
         </div>
         <div className="w-1/2 bg-white/80 backdrop-blur-none p-6 flex flex-col items-center justify-center">
           <div className="text-center">
@@ -84,7 +84,7 @@ export default function LoginIpad(props: LoginComponentProps) {
               {t("right_sidebar_description")}
             </p>
           </div>
-          <LoginDetails />
+          <RegisterDetails />
         </div>
       </div>
     </div>

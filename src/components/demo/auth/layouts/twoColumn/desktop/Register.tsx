@@ -14,7 +14,7 @@ import dynamic from "next/dynamic";
 
 // Types
 
-import type { LoginComponentProps } from "@/types";
+import type { RegisterComponentProps } from "@/types";
 type DynamicComponent<T = {}> = ComponentType<T>;
 
 // Interfaces
@@ -29,15 +29,15 @@ interface RightSidebarProps {
   children: ReactNode;
 }
 
-interface LoginFormProps extends LoginComponentProps {}
+interface RegisterFormProps extends RegisterComponentProps {}
 
-interface LoginDetailsProps {}
+interface RegisterDetailsProps {}
 
 // Hooks
 
 import { useTranslation } from "@/hooks/useTranslation";
 
-export default function LoginDesktop(props: LoginComponentProps) {
+export default function RegisterDesktop(props: RegisterComponentProps) {
   // Hooks
 
   const { t } = useTranslation();
@@ -60,24 +60,24 @@ export default function LoginDesktop(props: LoginComponentProps) {
     return {
       LeftSidebar: createDynamicComponent<LeftSidebarProps>("LeftSidebar"),
       RightSidebar: createDynamicComponent<RightSidebarProps>("RightSidebar"),
-      LoginForm: createDynamicComponent<LoginFormProps>("login/LoginForm"),
-      LoginDetails: createDynamicComponent<LoginDetailsProps>("login/LoginDetails"),
+      RegisterForm: createDynamicComponent<RegisterFormProps>("register/RegisterForm"),
+      RegisterDetails: createDynamicComponent<RegisterDetailsProps>("register/RegisterDetails"),
     };
   }, [props?.theme]);
 
-  const { LeftSidebar, RightSidebar, LoginForm, LoginDetails } = Components;
+  const { LeftSidebar, RightSidebar, RegisterForm, RegisterDetails } = Components;
 
   return (
     <div className="flex flex-row h-screen w-full items-center justify-center">
       <div className="relative inline-flex flex-row z-120 max-w-[60dvw] h-[77dvh]">
         <LeftSidebar
-          title={t("login_title")}
-          description={t("login_description")}
+          title={t("register_title")}
+          description={t("register_description")}
         >
-          <LoginForm {...props} />
+          <RegisterForm {...props} />
         </LeftSidebar>
         <RightSidebar>
-          <LoginDetails />
+          <RegisterDetails />
         </RightSidebar>
       </div>
     </div>
