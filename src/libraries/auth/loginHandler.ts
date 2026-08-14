@@ -7,6 +7,9 @@
  */
 
 import { NextRequest, NextResponse } from "next/server";
+
+// Functions
+
 import { cns } from "forma-li";
 
 export function loginHandler(apiUrl: string) {
@@ -27,7 +30,7 @@ export function loginHandler(apiUrl: string) {
             message: "No response from server",
             success: false,
           },
-          { status: 500 }
+          { status: 500 },
         );
       }
 
@@ -81,7 +84,7 @@ export function loginHandler(apiUrl: string) {
           message: data.message || "Login failed",
           success: false,
         },
-        { status: 401 }
+        { status: 401 },
       );
     } catch (err: any) {
       console.error("Login error:", err);
@@ -90,7 +93,7 @@ export function loginHandler(apiUrl: string) {
           message: err.message || "Internal server error",
           success: false,
         },
-        { status: 500 }
+        { status: 500 },
       );
     }
   };

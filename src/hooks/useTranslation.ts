@@ -6,10 +6,14 @@
  */
 "use client";
 
-import { setGetDictionary, useTranslation as useTranslationOriginal } from "forma-li";
+// Functions
+
+import {
+  setGetDictionary,
+  useTranslation as useTranslationOriginal,
+} from "forma-li";
 import { getDictionary } from "../locale";
 
 setGetDictionary(getDictionary as any);
-
 
 export const useTranslation = useTranslationOriginal;

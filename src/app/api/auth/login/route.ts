@@ -1,4 +1,3 @@
-// app/api/login/route.ts
 /*
  * @Author: Mohammad Felfelani
  * @Email: mfelfelani72@gmail.com
@@ -7,6 +6,8 @@
  * @Description: Login API Route
  */
 
+// Functions
+
 import { loginHandler } from "../../../../libraries/auth/loginHandler";
 
-export const POST = loginHandler(`${process.env.API_URL}/login`);
+export const POST = loginHandler(`${process.env.NEXT_PUBLIC_API_URL}/login`);

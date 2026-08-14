@@ -1,6 +1,6 @@
 // Components
 
-export { default as Login } from "./components/Login";
+export { default as Login } from "./components/demo/auth/Login";
 
 // Server handlers
 
