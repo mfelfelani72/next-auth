@@ -18,7 +18,6 @@ import DetectDevice from "./DetectDevice";
 
 import { LangWrapperProps } from "forma-li";
 
-
 // Zustand
 
 import { useLangStore } from "forma-li";
@@ -31,17 +30,17 @@ export default function LayoutWrapper({
 
   const { lang, dir, setLang, triggerRefresh } = useLangStore();
 
+  console.log("App Language is : ", lang);
+
   // States
 
   const [loaded, setLoaded] = useState(false);
 
   // Hooks
 
-
   // Functions
 
   useEffect(() => {
-
     if (lang !== langFromUrl) {
       setLang(langFromUrl);
       triggerRefresh?.();

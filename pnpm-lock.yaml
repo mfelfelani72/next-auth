@@ -21,8 +21,8 @@ importers:
         specifier: ^2.0.1
         version: 2.0.1
       forma-li:
-        specifier: 1.0.21
-        version: 1.0.21(@types/react@19.2.18)(debug@4.4.3(supports-color@7.2.0))(next@16.3.0(@babel/core@7.29.7(supports-color@7.2.0))(@opentelemetry/api@1.9.1)(@types/node@26.1.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(supports-color@7.2.0)(swr@2.5.0(react@19.2.8))(use-sync-external-store@1.6.0(react@19.2.8))
+        specifier: 1.0.22
+        version: 1.0.22(@types/react@19.2.18)(debug@4.4.3(supports-color@7.2.0))(next@16.3.0(@babel/core@7.29.7(supports-color@7.2.0))(@opentelemetry/api@1.9.1)(@types/node@26.1.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(supports-color@7.2.0)(swr@2.5.0(react@19.2.8))(use-sync-external-store@1.6.0(react@19.2.8))
       forma-ui:
         specifier: ^0.0.27
         version: 0.0.27(@babel/core@7.29.7(supports-color@7.2.0))(@opentelemetry/api@1.9.1)(@types/react@19.2.18)(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0)(use-sync-external-store@1.6.0(react@19.2.8))
@@ -1781,8 +1781,8 @@ packages:
     resolution: {integrity: sha512-vKatAh4SlVfgbv+YtmhiRjhEMJsYpsG1Y2rMQtR+SVSbytsSD1YGzDIcrAJmdFec88u/+VoGmxnl+80gL1tRCQ==}
     engines: {node: '>= 6'}
 
-  forma-li@1.0.21:
-    resolution: {integrity: sha512-kIiwfNoTpusueFiNB7IevCltEqAsNj7VJUFkZNZVIRmneZM/xtNtvr467S7xxrjQew2IXUdVcY4LCTTiQ6i+LA==}
+  forma-li@1.0.22:
+    resolution: {integrity: sha512-E6zYHp4xoPTi8JJf5yT0bLAuvW6dEeoqaz7ovQJqNwXjQzjwJ61Jnyw6q5yc9YM+M8mwxXsFpnrpEoxGeMweGw==}
     peerDependencies:
       next: '>=13.0.0'
       react: '>=18.0.0'
@@ -4616,7 +4616,7 @@ snapshots:
       hasown: 2.0.4
       mime-types: 2.1.35
 
-  forma-li@1.0.21(@types/react@19.2.18)(debug@4.4.3(supports-color@7.2.0))(next@16.3.0(@babel/core@7.29.7(supports-color@7.2.0))(@opentelemetry/api@1.9.1)(@types/node@26.1.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(supports-color@7.2.0)(swr@2.5.0(react@19.2.8))(use-sync-external-store@1.6.0(react@19.2.8)):
+  forma-li@1.0.22(@types/react@19.2.18)(debug@4.4.3(supports-color@7.2.0))(next@16.3.0(@babel/core@7.29.7(supports-color@7.2.0))(@opentelemetry/api@1.9.1)(@types/node@26.1.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(supports-color@7.2.0)(swr@2.5.0(react@19.2.8))(use-sync-external-store@1.6.0(react@19.2.8)):
     dependencies:
       axios: 1.19.0(debug@4.4.3(supports-color@7.2.0))(supports-color@7.2.0)
       clsx: 2.1.1
