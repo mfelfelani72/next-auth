@@ -8,38 +8,21 @@
 
 "use client";
 
-import { useMemo } from "react";
-import dynamic from "next/dynamic";
-import type { ComponentType } from "react";
+// Components
+
+import LoginForm from "../common/theme/default/login/LoginForm";
 
 // Types
 
-import type { LoginComponentProps } from "@/types";
-type DynamicComponent<T = {}> = ComponentType<T>;
-
-// Interfaces
-
-interface LoginFormProps extends LoginComponentProps {}
+import type { LoginComponentProps } from "../../../../../../types";
 
 // Hooks
 
-import { useTranslation } from "@/hooks/useTranslation";
+import { useTranslation } from "../../../../../../hooks/useTranslation";
 export default function LoginMobile(props: LoginComponentProps) {
   // Hooks
 
   const { t } = useTranslation();
-
-  // Functions
-
-  const LoginForm = useMemo(() => {
-    return dynamic(
-      () =>
-        import(`../common/theme/${props?.theme}/LoginForm`).catch(
-          () => import(`../common/theme/default/login/LoginForm`),
-        ),
-      { ssr: false },
-    ) as DynamicComponent<LoginFormProps>;
-  }, [props?.theme]);
 
   return (
     <div className="flex items-center justify-center min-h-screen p-4 bg-linear-to-br">

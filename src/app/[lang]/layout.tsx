@@ -6,23 +6,19 @@
  * @Description:
  */
 
-// Containers
-
-// import UserCheck from "@/containers/user/UserCheck";
-
 // Components
 
-import LayoutWrapper from "@/app/[lang]/LayoutWrapper";
+import LayoutWrapper from "../../app/[lang]/LayoutWrapper";
 
 // Functions
 
-import { getDictionary } from "@/locale";
+import { getDictionary } from "../../locale";
 import { setupMetadata } from "forma-li";
 
 // Interfaces
 
 import { LangLayoutProps } from "forma-li";
-import { languages, type Lang } from "@/configs/language";
+import { languages, type Lang } from "../../configs/language";
 
 setupMetadata({}, getDictionary as any);
 

@@ -2,10 +2,10 @@
 
 import React, { useState, useMemo, ComponentType, lazy } from "react";
 import { cn } from "forma-li";
-import type { RegisterProps, RegisterComponentProps } from "@/types";
+import type { RegisterProps, RegisterComponentProps } from "../../../types";
 
 const LazyTwoColumn = lazy(
-  () => import("@/components/demo/auth/layouts/twoColumn/RegisterLanding"),
+  () => import("../../../components/demo/auth/layouts/twoColumn/RegisterLanding"),
 );
 
 const LAYOUT_MAP: Record<string, ComponentType<RegisterComponentProps>> = {
@@ -56,9 +56,6 @@ export default function Register({
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       setMessage("Please fix the errors below.");
-
-      console.log(errors);
-      console.log(message);
       return;
     }
 

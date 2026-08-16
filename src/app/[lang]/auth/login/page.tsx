@@ -8,11 +8,11 @@
 
 // Components
 
-import Login from "@/components/demo/auth/Login";
+import Login from "../../../../components/demo/auth/Login";
 
 // Configures
 
-import { languages, type Lang } from "@/configs/language";
+import { languages, type Lang } from "../../../../configs/language";
 
 // Functions
 

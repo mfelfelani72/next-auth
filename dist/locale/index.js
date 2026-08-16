@@ -1,10 +1,4 @@
-/**
- * @Author: Mohammad Felfelani
- * @Email: mfelfelani72@gmail.com
- * @Team:
- * @Date: 2025-11-29 06:58:21
- * @Description:
- */
+// locale/index.ts
 import { cache } from "react";
 import en from "./en";
 import fa from "./fa";

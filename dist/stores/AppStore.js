@@ -7,7 +7,7 @@
  */
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
-import { isBrowser, setCookie, getCookie } from "forma-lis";
+import { isBrowser, setCookie, getCookie } from "forma-li";
 // Storage helper
 const themeStorage = {
     getItem: (name) => {
@@ -108,7 +108,6 @@ export const useAppStore = create()(persist((set, get) => ({
             return false;
         return storedValue;
     })(),
-    setAutoRefresh: (value) => set({ autoRefresh: value }),
     // Header
     headerLeftButtonFunction: null,
     setHeaderLeftButtonFunction: (newFunction) => set({ headerLeftButtonFunction: newFunction }),
@@ -126,7 +125,6 @@ export const useAppStore = create()(persist((set, get) => ({
         isInitialized: state.isInitialized,
         loading: state.loading,
         device: state.device,
-        autoRefresh: state.autoRefresh,
         headerLeftButtonFunction: state.headerLeftButtonFunction,
         headerLeftButtonChildren: state.headerLeftButtonChildren,
         headerRightButtonFunction: state.headerRightButtonFunction,

@@ -8,64 +8,23 @@
 
 "use client";
 
-import type { ComponentType, ReactNode } from "react";
-import { useMemo } from "react";
-import dynamic from "next/dynamic";
+// Components
+
+import LoginForm from "../common/theme/default/login/LoginForm";
+import LoginDetails from "../common/theme/default/login/LoginDetails";
 
 // Types
 
-import type { LoginComponentProps } from "@/types";
-
-// Interfaces
-
-interface LeftSidebarProps {
-  children: ReactNode;
-  title: string;
-  description: string;
-}
-
-interface RightSidebarProps {
-  children: ReactNode;
-}
-
-interface LoginFormProps extends LoginComponentProps {}
-
-interface LoginDetailsProps {}
-
-type DynamicComponent<T = {}> = ComponentType<T>;
+import type { LoginComponentProps } from "../../../../../../types";
 
 // Hooks
 
-import { useTranslation } from "@/hooks/useTranslation";
+import { useTranslation } from "../../../../../../hooks/useTranslation";
 
 export default function LoginIpad(props: LoginComponentProps) {
   // Hooks
+
   const { t } = useTranslation();
-
-  // Functions
-
-  const Components = useMemo(() => {
-    const createDynamicComponent = <P extends object>(
-      name: string,
-    ): DynamicComponent<P> => {
-      return dynamic(
-        () =>
-          import(`../common/theme/${props?.theme}/${name}`).catch(
-            () => import(`../common/theme/default/${name}`),
-          ),
-        { ssr: false },
-      ) as DynamicComponent<P>;
-    };
-
-    return {
-      LeftSidebar: createDynamicComponent<LeftSidebarProps>("LeftSidebar"),
-      RightSidebar: createDynamicComponent<RightSidebarProps>("RightSidebar"),
-      LoginForm: createDynamicComponent<LoginFormProps>("login/LoginForm"),
-      LoginDetails: createDynamicComponent<LoginDetailsProps>("login/LoginDetails"),
-    };
-  }, [props?.theme]);
-
-  const { LoginForm, LoginDetails } = Components;
 
   return (
     <div className="flex items-center justify-center min-h-screen p-6 ">

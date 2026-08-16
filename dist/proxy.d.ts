@@ -1,10 +1,8 @@
 /**
  * @Author: Mohammad Felfelani
  * @Email: mfelfelani72@gmail.com
- * @Team:
  * @Date: 2025-10-19
  * @Description: Middleware with language and device detection
- *
  */
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";

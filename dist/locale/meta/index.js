@@ -1,0 +1,39 @@
+/**
+ * @Author: Mohammad Felfelani
+ * @Email: mfelfelani72@gmail.com
+ * @Team:
+ * @Date: 2026-06-23
+ * @Description: Load meta files dynamically
+ */
+const licenseName = process.env.NEXT_PUBLIC_LICENSE_NAME || "sky";
+async function loadMetaFile(path) {
+    try {
+        const module = await import(`./${licenseName}/${path}`);
+        return module.default;
+    }
+    catch (_a) {
+        try {
+            const module = await import(`./${path}`);
+            return module.default;
+        }
+        catch (_b) {
+            return {};
+        }
+    }
+}
+export async function getMeta(lang) {
+    const [meta, meta_home, meta_login, meta_register, meta_forgotPassword] = await Promise.all([
+        loadMetaFile(`${lang}.json`),
+        loadMetaFile(`home/${lang}.json`),
+        loadMetaFile(`login/${lang}.json`),
+        loadMetaFile(`register/${lang}.json`),
+        loadMetaFile(`forgotPassword/${lang}.json`),
+    ]);
+    return {
+        meta,
+        meta_home,
+        meta_login,
+        meta_register,
+        meta_forgotPassword,
+    };
+}

@@ -8,38 +8,21 @@
 
 "use client";
 
-import { useMemo } from "react";
-import dynamic from "next/dynamic";
-import type { ComponentType } from "react";
+// Components
+
+import RegisterForm from "../common/theme/default/register/RegisterForm";
 
 // Types
 
-import type { RegisterComponentProps } from "@/types";
-type DynamicComponent<T = {}> = ComponentType<T>;
-
-// Interfaces
-
-interface RegisterFormProps extends RegisterComponentProps {}
+import type { RegisterComponentProps } from "../../../../../../types";
 
 // Hooks
 
-import { useTranslation } from "@/hooks/useTranslation";
+import { useTranslation } from "../../../../../../hooks/useTranslation";
 export default function RegisterMobile(props: RegisterComponentProps) {
   // Hooks
 
   const { t } = useTranslation();
-
-  // Functions
-
-  const RegisterForm = useMemo(() => {
-    return dynamic(
-      () =>
-        import(`../common/theme/${props?.theme}/RegisterForm`).catch(
-          () => import(`../common/theme/default/register/RegisterForm`),
-        ),
-      { ssr: false },
-    ) as DynamicComponent<RegisterFormProps>;
-  }, [props?.theme]);
 
   return (
     <div className="flex items-center justify-center min-h-screen p-4 bg-linear-to-br">

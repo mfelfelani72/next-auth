@@ -12,7 +12,7 @@ import { cookies } from "next/headers";
 
 // Fonts
 
-import { satoshi, iranSans } from "@/libraries/fonts";
+import { satoshi, iranSans } from "../libraries/fonts";
 
 // CSS
 

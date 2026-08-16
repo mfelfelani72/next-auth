@@ -10,7 +10,7 @@
 
 // Components
 
-import Image from "@/components/base/Image";
+import Image from "../../../../../../../../components/base/Image";
 
 // Functions
 
@@ -24,7 +24,7 @@ interface BrandCardProps {
 
 // Hooks
 
-import { useTranslation } from "@/hooks/useTranslation";
+import { useTranslation } from "../../../../../../../../hooks/useTranslation";
 
 export default function BrandCard({ className }: BrandCardProps) {
   // Hooks

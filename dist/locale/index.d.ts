@@ -1,5 +1,10 @@
 declare const dictionaries: {
     en: {
+        meta: any;
+        meta_home: any;
+        meta_login: any;
+        meta_register: any;
+        meta_forgotPassword: any;
         login: string;
         register: string;
         forgot_password_title: string;
@@ -30,6 +35,11 @@ declare const dictionaries: {
         send: string;
     };
     fa: {
+        meta: any;
+        meta_home: any;
+        meta_login: any;
+        meta_register: any;
+        meta_forgotPassword: any;
         login: string;
         register: string;
         forgot_password_title: string;
@@ -66,6 +76,11 @@ declare const dictionaries: {
 };
 export type Lang = keyof typeof dictionaries;
 export declare const getDictionary: (lang?: Lang) => {
+    meta: any;
+    meta_home: any;
+    meta_login: any;
+    meta_register: any;
+    meta_forgotPassword: any;
     login: string;
     register: string;
     forgot_password_title: string;
@@ -95,6 +110,11 @@ export declare const getDictionary: (lang?: Lang) => {
     invalid_re_password: string;
     send: string;
 } | {
+    meta: any;
+    meta_home: any;
+    meta_login: any;
+    meta_register: any;
+    meta_forgotPassword: any;
     login: string;
     register: string;
     forgot_password_title: string;

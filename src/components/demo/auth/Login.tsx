@@ -13,7 +13,7 @@ import React, { useState, useMemo, ComponentType, lazy } from "react";
 // Components
 
 const LazyTwoColumn = lazy(
-  () => import("@/components/demo/auth/layouts/twoColumn/LoginLanding"),
+  () => import("../../../components/demo/auth/layouts/twoColumn/LoginLanding"),
 );
 
 // Constants
@@ -28,7 +28,7 @@ import { cn } from "forma-li";
 
 // Types
 
-import type { LoginProps, LoginComponentProps } from "@/types";
+import type { LoginProps, LoginComponentProps } from "../../../types";
 
 export default function Login({ layout, theme, className }: LoginProps) {
   // States
@@ -79,7 +79,7 @@ export default function Login({ layout, theme, className }: LoginProps) {
       setMessage(data?.message || "Login successful");
     } catch (err: any) {
       setMessage(err?.message || "Network error");
-    } 
+    }
   };
 
   const RenderUi = useMemo(() => {
@@ -96,12 +96,7 @@ export default function Login({ layout, theme, className }: LoginProps) {
         className,
       )}
     >
-      <RenderUi
-        onSubmit={handleSubmit}
-        errors={errors}
-        message={message}
-        theme={theme}
-      />
+      <RenderUi onSubmit={handleSubmit} errors={errors} message={message} theme={theme} />
     </div>
   );
 }

@@ -14,7 +14,7 @@ import { Shield, Bolt, Eye } from "lucide-react";
 
 // Hooks
 
-import { useTranslation } from "@/hooks/useTranslation";
+import { useTranslation } from "../../../../../../../../../hooks/useTranslation";
 
 const RegisterDetails = () => {
   // Hooks

@@ -8,64 +8,22 @@
 
 "use client";
 
-import type { ComponentType, ReactNode } from "react";
-import { useMemo } from "react";
-import dynamic from "next/dynamic";
+// Components
+
+import RegisterForm from "../common/theme/default/register/RegisterForm";
+import RegisterDetails from "../common/theme/default/register/RegisterDetails";
 
 // Types
 
-import type { RegisterComponentProps } from "@/types";
-
-// Interfaces
-
-interface LeftSidebarProps {
-  children: ReactNode;
-  title: string;
-  description: string;
-}
-
-interface RightSidebarProps {
-  children: ReactNode;
-}
-
-interface RegisterFormProps extends RegisterComponentProps {}
-
-interface RegisterDetailsProps {}
-
-type DynamicComponent<T = {}> = ComponentType<T>;
+import type { RegisterComponentProps } from "../../../../../../types";
 
 // Hooks
 
-import { useTranslation } from "@/hooks/useTranslation";
+import { useTranslation } from "../../../../../../hooks/useTranslation";
 
 export default function RegisterIpad(props: RegisterComponentProps) {
   // Hooks
   const { t } = useTranslation();
-
-  // Functions
-
-  const Components = useMemo(() => {
-    const createDynamicComponent = <P extends object>(
-      name: string,
-    ): DynamicComponent<P> => {
-      return dynamic(
-        () =>
-          import(`../common/theme/${props?.theme}/${name}`).catch(
-            () => import(`../common/theme/default/${name}`),
-          ),
-        { ssr: false },
-      ) as DynamicComponent<P>;
-    };
-
-    return {
-      LeftSidebar: createDynamicComponent<LeftSidebarProps>("LeftSidebar"),
-      RightSidebar: createDynamicComponent<RightSidebarProps>("RightSidebar"),
-      RegisterForm: createDynamicComponent<RegisterFormProps>("register/RegisterForm"),
-      RegisterDetails: createDynamicComponent<RegisterDetailsProps>("register/RegisterDetails"),
-    };
-  }, [props?.theme]);
-
-  const { RegisterForm, RegisterDetails } = Components;
 
   return (
     <div className="flex items-center justify-center min-h-screen p-6 ">

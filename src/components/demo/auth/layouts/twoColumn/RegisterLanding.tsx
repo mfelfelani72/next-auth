@@ -20,7 +20,7 @@ const RegisterIpad = dynamic(() => import("./ipad/Register"));
 import { detectComponentsResponsive } from "forma-li";
 
 // Types
-import type { RegisterComponentProps } from "@/types";
+import type { RegisterComponentProps } from "../../../../../types";
 
 export default function TwoColumnLayout(props: RegisterComponentProps) {
   const [deviceType, setDeviceType] = useState<string>();

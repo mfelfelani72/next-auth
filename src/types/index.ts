@@ -2,10 +2,24 @@ export interface LoginComponentProps {
   onSubmit: (formData: FormData) => void;
   errors?: { email?: string; password?: string };
   message?: string | null;
+  theme?: string;
 }
 
 export interface LoginProps {
-  loginRoute: string;
-  UiComponent?: React.ComponentType<LoginComponentProps>;
+  layout: string;
+  theme?: string;
+  className?: string;
+}
+
+export interface RegisterComponentProps {
+  onSubmit: (formData: FormData) => void;
+  errors?: { email?: string; password?: string };
+  message?: string | null;
+  theme?: string;
+}
+
+export interface RegisterProps {
+  layout: string;
+  theme?: string;
   className?: string;
 }

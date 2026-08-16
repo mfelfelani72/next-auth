@@ -1,4 +1,2 @@
-export declare function useTranslation(): {
-    t: (key: string, fallback?: string) => string;
-    lang: "en" | "fa";
-};
+import { useTranslation as useTranslationOriginal } from "forma-li";
+export declare const useTranslation: typeof useTranslationOriginal;

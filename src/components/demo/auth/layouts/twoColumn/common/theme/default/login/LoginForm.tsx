@@ -12,7 +12,7 @@ import { useState } from "react";
 
 // Components
 
-import LocalizedLink from "@/components/base/LocalizedLink";
+import LocalizedLink from "../../../../../../../../../components/base/LocalizedLink";
 import { InputPassword, InputEmail } from "forma-ui";
 
 const GoogleIcon = () => (
@@ -45,11 +45,11 @@ const GoogleIcon = () => (
 
 // Types
 
-import type { LoginComponentProps } from "@/types";
+import type { LoginComponentProps } from "../../../../../../../../../types";
 
 // Hooks
 
-import { useTranslation } from "@/hooks/useTranslation";
+import { useTranslation } from "../../../../../../../../../hooks/useTranslation";
 
 export default function LoginForm({
   onSubmit,
@@ -79,38 +79,39 @@ export default function LoginForm({
       className="flex flex-col h-full w-full animate-in fade-in slide-in-from-bottom-4 duration-500 justify-between"
     >
       <div>
-        <div className="flex flex-col">
-          <InputEmail
-            id="email"
-            name="email"
-            label={
-              <div className="xs:text-[16px] text-Neutral-100">
-                {t("email")}
-              </div>
-            }
-            validate={t("invalid_email")}
-            placeholder={t("enter_your_email")}
-            className="flex justify-between h-10 rounded-lg xl:placeholder:text-sm xs:placeholder:text-xs shadow-inner bg-white/20 border-Neutral-200 text-white placeholder:text-Neutral-100"
-          />
-          {errors?.email && (
-            <p className="mt-1 text-sm text-red-300">{errors.email}</p>
-          )}
+        <div className="flex flex-col gap-7">
+          <div>
+            <label className="xs:text-[16px] text-Neutral-100 mb-1">
+              {t("email")}
+            </label>
+            <InputEmail
+              id="email"
+              name="email"
+              label=""
+              validate={t("invalid_email")}
+              placeholder={t("enter_your_email")}
+              className="flex justify-between h-10 rounded-lg xl:placeholder:text-sm xs:placeholder:text-xs shadow-inner bg-white/20 border-Neutral-200 text-white placeholder:text-Neutral-100"
+            />
+            {errors?.email && (
+              <p className="mt-1 text-sm text-red-300">{errors.email}</p>
+            )}
+          </div>
 
-          <InputPassword
-            id="password"
-            name="password"
-            label={
-              <div className="mt-6 xs:text-[16px] text-Neutral-100">
-                {t("password")}
-              </div>
-            }
-            validate={t("invalid_password")}
-            placeholder={t("enter_your_password")}
-            className="flex justify-between h-10 rounded-lg xl:placeholder:text-sm xs:placeholder:text-xs shadow-inner bg-white/20 border-Neutral-200 text-white placeholder:text-Neutral-100"
-          />
-          {errors?.password && (
-            <p className="mt-1 text-sm text-red-300">{errors.password}</p>
-          )}
+          <div>
+            <label className="xs:text-[16px] text-Neutral-100 mb-1">
+              {t("password")}
+            </label>
+            <InputPassword
+              id="password"
+              name="password"
+              validate={t("invalid_password")}
+              placeholder={t("enter_your_password")}
+              className="flex justify-between h-10 rounded-lg xl:placeholder:text-sm xs:placeholder:text-xs shadow-inner bg-white/20 border-Neutral-200 text-white placeholder:text-Neutral-100"
+            />
+            {errors?.password && (
+              <p className="mt-1 text-sm text-red-300">{errors.password}</p>
+            )}
+          </div>
         </div>
 
         <div className="flex justify-end mt-2">

@@ -8,11 +8,11 @@
 
 // Components
 
-import Register from "@/components/demo/auth/Register";
+import Register from "../../../../components/demo/auth/Register";
 
 // Configures
 
-import { languages, type Lang } from "@/configs/language";
+import { languages, type Lang } from "../../../../configs/language";
 
 // Functions
 

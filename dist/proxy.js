@@ -1,17 +1,13 @@
 /**
  * @Author: Mohammad Felfelani
  * @Email: mfelfelani72@gmail.com
- * @Team:
  * @Date: 2025-10-19
  * @Description: Middleware with language and device detection
- *
  */
 import { NextResponse } from "next/server";
-// Functions
-import { detectDeviceFromUA } from "@/libraries/detectDeviceFromUA";
-// ⚠️ نکته مهم: نام تابع باید `middleware` باشد، نه `proxy`
+import { detectDeviceFromUA } from "forma-li";
 export async function proxy(request) {
-    var _a, _b, _c;
+    var _a, _b;
     const url = request.nextUrl.clone();
     // ----------------------------
     // Handle language
@@ -38,21 +34,19 @@ export async function proxy(request) {
     // ----------------------------
     const ua = request.headers.get("user-agent") || "";
     const device = detectDeviceFromUA(ua);
-    const existingDevice = (_c = request.cookies.get("device-type")) === null || _c === void 0 ? void 0 : _c.value;
-    if (!existingDevice) {
-        const res = NextResponse.next();
-        res.cookies.set({
-            name: "device-type",
-            value: device,
-            path: "/",
-            maxAge: 60 * 60 * 24 * 365,
-            httpOnly: false,
-            sameSite: "lax",
-        });
-        return res;
-    }
-    return NextResponse.next();
+    const res = NextResponse.next();
+    res.cookies.set({
+        name: "device-type",
+        value: device,
+        path: "/",
+        maxAge: 60 * 60 * 24 * 365,
+        httpOnly: false,
+        sameSite: "lax",
+    });
+    return res;
 }
 export const config = {
-    matcher: ["/", "/:path*"],
+    matcher: [
+        "/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)",
+    ],
 };

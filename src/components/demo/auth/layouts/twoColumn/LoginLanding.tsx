@@ -20,7 +20,7 @@ const LoginIpad = dynamic(() => import("./ipad/Login"));
 import { detectComponentsResponsive } from "forma-li";
 
 // Types
-import type { LoginComponentProps } from "@/types";
+import type { LoginComponentProps } from "../../../../../types";
 
 export default function TwoColumnLayout(props: LoginComponentProps) {
   const [deviceType, setDeviceType] = useState<string>();

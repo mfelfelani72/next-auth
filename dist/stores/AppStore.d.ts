@@ -21,10 +21,6 @@ interface DeviceState {
     device: string;
     setDevice: (value: string) => void;
 }
-interface AutoRefreshState {
-    autoRefresh: boolean | string;
-    setAutoRefresh: (value: boolean | string) => void;
-}
 interface HeaderState {
     headerLeftButtonFunction: (() => void) | null;
     setHeaderLeftButtonFunction: (newFunction: (() => void) | null) => void;
@@ -35,7 +31,7 @@ interface HeaderState {
     headerRightButtonChildren: React.ReactNode | string;
     setHeaderRightButtonChildren: (children: React.ReactNode) => void;
 }
-type AppState = ThemeState & LoadingState & DeviceState & AutoRefreshState & HeaderState;
+type AppState = ThemeState & LoadingState & DeviceState & HeaderState;
 export declare const useAppStore: import("zustand").UseBoundStore<Omit<import("zustand").StoreApi<AppState>, "persist" | "setState"> & {
     setState(partial: Partial<AppState> | ((state: AppState) => Partial<AppState> | AppState) | AppState, replace?: false | undefined): unknown;
     setState(state: ((state: AppState) => AppState) | AppState, replace: true): unknown;

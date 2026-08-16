@@ -5,6 +5,8 @@
  * @Date: 2025-10-07 07:53:42
  * @Description:
  */
+import { getMeta } from "./meta/index";
 import auth_fa from "./auth/fa.json";
-const fa = Object.assign({}, auth_fa);
+const meta = await getMeta("fa");
+const fa = Object.assign(Object.assign({}, meta), auth_fa);
 export default fa;

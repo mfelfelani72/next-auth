@@ -21,12 +21,9 @@ import { useLangStore } from "forma-li";
 
 // Interfaces
 
-import {
-  languages,
-  type Lang,
-  getNativeName,
-  getFlag,
-} from "../../configs/language";
+import { languages, type Lang } from "../../configs/language";
+
+import { getLanguage } from "forma-li";
 
 export default function LanguageSwitcher() {
   // Hooks
@@ -220,10 +217,10 @@ export default function LanguageSwitcher() {
                                : "text-Neutral-400 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-white/30 dark:hover:bg-Neutral-700/40 cursor-pointer"
                            }`}
               >
-                <span className="text-lg">{getFlag(currentLang)}</span>
+                <span className="text-lg">{getLanguage(currentLang).flag}</span>
 
                 <span className="font-medium">
-                  {getNativeName(currentLang)}
+                  {getLanguage(currentLang).nativeName}
                 </span>
 
                 {isActive && (

@@ -6,6 +6,11 @@
  * @Description:
  */
 declare const en: {
+    meta: any;
+    meta_home: any;
+    meta_login: any;
+    meta_register: any;
+    meta_forgotPassword: any;
     login: string;
     register: string;
     forgot_password_title: string;

@@ -22,7 +22,7 @@ import { cn } from "forma-li";
 
 // Hooks
 
-import { useTranslation } from "@/hooks/useTranslation";
+import { useTranslation } from "../../hooks/useTranslation";
 
 // Interfaces
 

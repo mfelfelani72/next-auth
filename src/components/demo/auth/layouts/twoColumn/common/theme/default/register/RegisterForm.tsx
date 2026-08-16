@@ -12,16 +12,16 @@ import { useState } from "react";
 
 // Hooks
 
-import { useTranslation } from "@/hooks/useTranslation";
+import { useTranslation } from "../../../../../../../../../hooks/useTranslation";
 
 // Components
 
 import { InputPassword, InputEmail, InputRePassword } from "forma-ui";
-import LocalizedLink from "@/components/base/LocalizedLink";
+import LocalizedLink from "../../../../../../../../../components/base/LocalizedLink";
 
 // Types
 
-import type { RegisterComponentProps } from "@/types";
+import type { RegisterComponentProps } from "../../../../../../../../../types";
 
 // Google SVG Icon Component
 
@@ -41,8 +41,8 @@ const RegisterForm = ({
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
- console.log(formData);
-   
+    console.log(formData);
+
     onSubmit(formData); // ✅ اینجا onSubmit رو صدا بزن
   };
 
@@ -52,43 +52,43 @@ const RegisterForm = ({
       className="flex flex-col h-full w-full animate-in fade-in slide-in-from-bottom-4 duration-500 justify-between"
     >
       <div>
-        <div className="flex flex-col">
-          <InputEmail
-            id="email"
-            name="email"
-            label={
-              <div className="xs:text-[16px] text-Neutral-100">
-                {t("email")}
-              </div>
-            }
-            validate={t("invalid_email")}
-            placeholder={t("enter_your_email")}
-            className={
-              "flex justify-between h-10 rounded-lg xl:placeholder:text-sm xs:placeholder:text-xs shadow-inner bg-white/20 border-Neutral-200 text-white placeholder:text-Neutral-100"
-            }
-          />
-          <InputPassword
-            id="password"
-            name="password"
-            label={
-              <div className="mt-6 xs:text-[16px] text-Neutral-100">
-                {t("password")}
-              </div>
-            }
-            validate={t("invalid_password")}
-            placeholder={t("enter_your_password")}
-            className={
-              "flex justify-between h-10 rounded-lg xl:placeholder:text-sm xs:placeholder:text-xs shadow-inner bg-white/20 border-Neutral-200 text-white placeholder:text-Neutral-100"
-            }
-          />
+        <div className="flex flex-col gap-5">
+          <div>
+            <label className="xs:text-[16px] text-Neutral-100 mb-1">
+              {t("email")}
+            </label>
+            <InputEmail
+              id="email"
+              name="email"
+              validate={t("invalid_email")}
+              placeholder={t("enter_your_email")}
+              className={
+                "flex justify-between h-10 rounded-lg xl:placeholder:text-sm xs:placeholder:text-xs shadow-inner bg-white/20 border-Neutral-200 text-white placeholder:text-Neutral-100"
+              }
+            />
+          </div>
+          <div>
+            <label className="xs:text-[16px] text-Neutral-100 mb-1">
+              {t("password")}
+            </label>
+            <InputPassword
+              id="password"
+              name="password"
+              validate={t("invalid_password")}
+              placeholder={t("enter_your_password")}
+              className={
+                "flex justify-between h-10 rounded-lg xl:placeholder:text-sm xs:placeholder:text-xs shadow-inner bg-white/20 border-Neutral-200 text-white placeholder:text-Neutral-100"
+              }
+            />
+          </div>
+          <div>
+            <label className="xs:text-[16px] text-Neutral-100 mb-1">
+              {t("confirm_password")}
+            </label>
+          </div>
           <InputRePassword
             id="confirmPassword"
             name="confirmPassword"
-            label={
-              <div className="mt-6 xs:text-[16px] text-Neutral-100">
-                {t("confirm_password")}
-              </div>
-            }
             validate={t("mismatch_password")}
             placeholder={t("confirm_your_password")}
             className={

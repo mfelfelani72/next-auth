@@ -14,7 +14,8 @@ import { LanguageIcon } from "forma-ui";
 // Zustand
 import { useLangStore } from "forma-li";
 // Interfaces
-import { languages, getNativeName, getFlag, } from "../../configs/language";
+import { languages } from "../../configs/language";
+import { getLanguage } from "forma-li";
 export default function LanguageSwitcher() {
     // Hooks
     const router = useRouter();
@@ -130,6 +131,6 @@ export default function LanguageSwitcher() {
                     return (_jsxs("button", { onClick: () => handleChange(currentLang), disabled: isActive, className: `w-full flex items-center gap-3 px-4 py-3 text-left transition-all duration-200
                            ${isActive
                             ? "text-primary-600 dark:text-primary-400 cursor-default bg-white/20 dark:bg-white/10"
-                            : "text-Neutral-400 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-white/30 dark:hover:bg-Neutral-700/40 cursor-pointer"}`, children: [_jsx("span", { className: "text-lg", children: getFlag(currentLang) }), _jsx("span", { className: "font-medium", children: getNativeName(currentLang) }), isActive && (_jsx("div", { className: "w-2 h-2 bg-primary-500 dark:bg-primary-400 rounded-full ml-auto shadow-[0_0_12px_rgba(99,102,241,0.4)]" }))] }, currentLang));
+                            : "text-Neutral-400 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-white/30 dark:hover:bg-Neutral-700/40 cursor-pointer"}`, children: [_jsx("span", { className: "text-lg", children: getLanguage(currentLang).flag }), _jsx("span", { className: "font-medium", children: getLanguage(currentLang).nativeName }), isActive && (_jsx("div", { className: "w-2 h-2 bg-primary-500 dark:bg-primary-400 rounded-full ml-auto shadow-[0_0_12px_rgba(99,102,241,0.4)]" }))] }, currentLang));
                 }) }))] }));
 }
