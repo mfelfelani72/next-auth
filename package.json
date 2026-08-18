@@ -1,6 +1,6 @@
 {
   "name": "next-auth-mfelfelani72",
-  "version": "0.0.29",
+  "version": "0.0.30",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -16,7 +16,6 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@t3-oss/env-nextjs": "^0.13.11",
     "axios": "^1.19.0",
     "clsx": "^2.1.1",
     "cookie": "^2.0.1",
